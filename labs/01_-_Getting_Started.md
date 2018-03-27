@@ -39,7 +39,7 @@ To be clear: it is possible to install Python in other ways and individually ins
 
 ## 1. Installing Jupyter Notebooks through Anaconda
 
-Install Jupyter Notebooks following the instructions in the *Art of Literary Text Analysis* by Stéfan Sinclair & Geoffrey Rockwell, following the [Getting Setup](https://github.com/sgsinclair/alta/blob/master/ipynb/GettingSetup.ipynb) and [Getting Started](https://github.com/sgsinclair/alta/blob/master/ipynb/GettingStarted.ipynb) (you can stop before the Printing Dynamic Content section).
+Install Jupyter Notebooks following the instructions in the *Art of Literary Text Analysis* by StÃ©fan Sinclair & Geoffrey Rockwell, following the [Getting Setup](https://github.com/sgsinclair/alta/blob/master/ipynb/GettingSetup.ipynb) and [Getting Started](https://github.com/sgsinclair/alta/blob/master/ipynb/GettingStarted.ipynb) (you can stop before the Printing Dynamic Content section).
 
 After you're done installation, start a new notebook and follow along with the tour at Help > User Interface Tour.
 
@@ -132,7 +132,7 @@ If you have a really long string that needs to go across lines, you can use `\` 
 
 
 ```python
-paragraph = "It was a dark and stormy night; the rain fell in torrents — except at occasional intervals, when it was " + \
+paragraph = "It was a dark and stormy night; the rain fell in torrents â€” except at occasional intervals, when it was " + \
     "checked by a violent gust of wind which swept up the streets (for it is in London that our scene lies), rattling " + \
     "along the housetops, and fiercely agitating the scanty flame of the lamps that struggled against the darkness."
 paragraph
@@ -141,7 +141,7 @@ paragraph
 
 
 
-    'It was a dark and stormy night; the rain fell in torrents — except at occasional intervals, when it was checked by a violent gust of wind which swept up the streets (for it is in London that our scene lies), rattling along the housetops, and fiercely agitating the scanty flame of the lamps that struggled against the darkness.'
+    'It was a dark and stormy night; the rain fell in torrents â€” except at occasional intervals, when it was checked by a violent gust of wind which swept up the streets (for it is in London that our scene lies), rattling along the housetops, and fiercely agitating the scanty flame of the lamps that struggled against the darkness.'
 
 
 
