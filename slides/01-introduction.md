@@ -1,4 +1,4 @@
-_[Link to Slides](http://www.porganized.com/Scripting-Course/01-introduction.html)_
+_[Link to Slides](http://www.porganized.com/Scripting-Course/slides/01-introduction.html)_
 
 
 # Week 1: Scripting for Large Databases
