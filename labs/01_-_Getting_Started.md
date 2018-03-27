@@ -1,3 +1,5 @@
+_[Link to Notebook Version of Lab](https://github.com/organisciak/Scripting-Course/blob/master/labs/01%20-%20Getting%20Started.ipynb)_
+
 
 # Week 1 Lab Task
 *This lab is ungraded and has no submission*
