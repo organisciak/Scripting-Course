@@ -229,10 +229,9 @@ this course very difficult.
 - Week 9    May 24   Regular Expressions
 - Week 10   May 31   Advanced techniques, review
 
+## Golden Rule
 
-```python
-## Tips
-```
+- Work together to figure things out. 'A's are not a limited resource.
 
 # Syllabus
 
