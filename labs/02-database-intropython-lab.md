@@ -284,19 +284,10 @@ DROP TABLE worker_wages;
 |Drawer |	375|	328.98|
 |Warehouseman|	1586|	308.73|
 
-**A**: 
-```sql
-    INSERT INTO worker_wages VALUES
-            ('Drawer', 375, 328.98),
-            ('Warehouseman', 1586, 308.73);
-```
-
 **Q**: What's wrong with this SQL?
 ```sql
     INSERT INTO worker_wages VALUES (Weaver, 8577, 273.97);
 ```
-
-**A**: Text not Quoted.
 
 **Q**: Consider the following dataset, of people's heights and weights, as well as their reported heights and weights:
 
@@ -413,8 +404,6 @@ SELECT author,book FROM books
         AND sales > 100000
         AND author != 'J.K. Rowling'
 ```
-
-# TODO Convert SQL to plain text
 
 # Part 2: More Python
 
