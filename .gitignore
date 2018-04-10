@@ -2,3 +2,5 @@
 non-git-files/
 *.db
 Process Data.html
+"*~"
+.ipynb_checkpoints 
