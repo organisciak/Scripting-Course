@@ -18,6 +18,17 @@ There are two ways to work with SQLite. You can either
 %sql sqlite://
 ```
 
+    The sql extension is already loaded. To reload it, use:
+      %reload_ext sql
+
+
+
+
+
+    'Connected: None@None'
+
+
+
 That installs a special command to connect to SQLite, loads it, and connects to a temporary database.
 
 Now, if you have `%%sql` at the start of a code cell, it will run SQL in your connected database.

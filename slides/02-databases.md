@@ -585,7 +585,7 @@ SELECT * from cats WHERE affection <= 3;
 
 
 
-### Unexepected Input
+### Unexpected Input
 
 _What if you add quotes to the affection score?_
 
