@@ -3,6 +3,19 @@ _[Link to Slides](http://www.porganized.com/Scripting-Course/slides/03-sql-panda
 
 ## Fundamentals 3
 
+
+```python
+import pandas as pd
+%sql sqlite:///week2.db
+```
+
+
+
+
+    'Connected: None@week2.db'
+
+
+
 ## Today
 
 - Last week of `SQL` and `Python` fundamentals
@@ -39,7 +52,7 @@ Why are we learning Python? After this week, we'll be relying on tools in Python
 
 ## SQL Review
 
-`CREATE table_name (column1, column2);`
+`CREATE TABLE table_name (column1, column2);`
 
 `INSERT INTO table_name VALUES (field1, field2);`
 
@@ -286,7 +299,7 @@ INSERT INTO worker_wages VALUES
 
 ```python
 %%sql
-SELECT * FROM worker_wages
+INSERT INTO worker_wages VALUES ("Drawer", 375, 328.98 )
 ```
 
     Done.
@@ -492,8 +505,199 @@ SELECT * from heights
 
 ```python
 %%sql
-SELECT ....
+SELECT * FROM heights
+    WHERE sex == 'F'
+    AND repwt > weight
+    AND repht < height
+;
 ```
+
+    Done.
+
+
+
+
+
+<table>
+    <tr>
+        <th>Unnamed: 0</th>
+        <th>sex</th>
+        <th>weight</th>
+        <th>height</th>
+        <th>repwt</th>
+        <th>repht</th>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>F</td>
+        <td>53</td>
+        <td>161</td>
+        <td>54.0</td>
+        <td>158.0</td>
+    </tr>
+    <tr>
+        <td>13</td>
+        <td>F</td>
+        <td>51</td>
+        <td>161</td>
+        <td>52.0</td>
+        <td>158.0</td>
+    </tr>
+    <tr>
+        <td>15</td>
+        <td>F</td>
+        <td>52</td>
+        <td>163</td>
+        <td>57.0</td>
+        <td>160.0</td>
+    </tr>
+    <tr>
+        <td>16</td>
+        <td>F</td>
+        <td>65</td>
+        <td>166</td>
+        <td>66.0</td>
+        <td>165.0</td>
+    </tr>
+    <tr>
+        <td>25</td>
+        <td>F</td>
+        <td>54</td>
+        <td>171</td>
+        <td>59.0</td>
+        <td>168.0</td>
+    </tr>
+    <tr>
+        <td>28</td>
+        <td>F</td>
+        <td>58</td>
+        <td>166</td>
+        <td>60.0</td>
+        <td>160.0</td>
+    </tr>
+    <tr>
+        <td>29</td>
+        <td>F</td>
+        <td>39</td>
+        <td>157</td>
+        <td>41.0</td>
+        <td>153.0</td>
+    </tr>
+    <tr>
+        <td>46</td>
+        <td>F</td>
+        <td>54</td>
+        <td>160</td>
+        <td>55.0</td>
+        <td>158.0</td>
+    </tr>
+    <tr>
+        <td>49</td>
+        <td>F</td>
+        <td>54</td>
+        <td>174</td>
+        <td>56.0</td>
+        <td>173.0</td>
+    </tr>
+    <tr>
+        <td>52</td>
+        <td>F</td>
+        <td>56</td>
+        <td>165</td>
+        <td>57.0</td>
+        <td>163.0</td>
+    </tr>
+    <tr>
+        <td>74</td>
+        <td>F</td>
+        <td>56</td>
+        <td>163</td>
+        <td>57.0</td>
+        <td>159.0</td>
+    </tr>
+    <tr>
+        <td>77</td>
+        <td>F</td>
+        <td>50</td>
+        <td>160</td>
+        <td>55.0</td>
+        <td>150.0</td>
+    </tr>
+    <tr>
+        <td>78</td>
+        <td>F</td>
+        <td>63</td>
+        <td>160</td>
+        <td>64.0</td>
+        <td>158.0</td>
+    </tr>
+    <tr>
+        <td>89</td>
+        <td>F</td>
+        <td>57</td>
+        <td>163</td>
+        <td>59.0</td>
+        <td>160.0</td>
+    </tr>
+    <tr>
+        <td>96</td>
+        <td>F</td>
+        <td>56</td>
+        <td>165</td>
+        <td>57.0</td>
+        <td>160.0</td>
+    </tr>
+    <tr>
+        <td>105</td>
+        <td>F</td>
+        <td>62</td>
+        <td>175</td>
+        <td>63.0</td>
+        <td>173.0</td>
+    </tr>
+    <tr>
+        <td>113</td>
+        <td>F</td>
+        <td>55</td>
+        <td>174</td>
+        <td>57.0</td>
+        <td>171.0</td>
+    </tr>
+    <tr>
+        <td>115</td>
+        <td>F</td>
+        <td>76</td>
+        <td>167</td>
+        <td>77.0</td>
+        <td>165.0</td>
+    </tr>
+    <tr>
+        <td>142</td>
+        <td>F</td>
+        <td>52</td>
+        <td>163</td>
+        <td>53.0</td>
+        <td>160.0</td>
+    </tr>
+    <tr>
+        <td>143</td>
+        <td>F</td>
+        <td>53</td>
+        <td>165</td>
+        <td>55.0</td>
+        <td>163.0</td>
+    </tr>
+    <tr>
+        <td>151</td>
+        <td>F</td>
+        <td>57</td>
+        <td>168</td>
+        <td>58.0</td>
+        <td>165.0</td>
+    </tr>
+</table>
+
+
 
 ## Python Review
 
@@ -557,23 +761,41 @@ Where `handshake(name)` is an imaginary function that can bring up a student's h
 balance = 1000
 
 for expense in [6, 5, 4, 3, -1000]:
-    print("Spending $", expense)
+    print("SPENDING:")
+    print(expense)
     balance = balance + expense
-    print("Remaining balanced on credit card: $", balance)
+    print("REMAINING:")
+    print(balance)
+    print('----')
     
 print("Final balance:", balance)
 ```
 
-    spending $ 6
-    Remaining balanced on credit card: $ 1006
-    spending $ 5
-    Remaining balanced on credit card: $ 1011
-    spending $ 4
-    Remaining balanced on credit card: $ 1015
-    spending $ 3
-    Remaining balanced on credit card: $ 1018
-    spending $ -1000
-    Remaining balanced on credit card: $ 18
+    SPENDING:
+    6
+    REMAINING:
+    1006
+    ----
+    SPENDING:
+    5
+    REMAINING:
+    1011
+    ----
+    SPENDING:
+    4
+    REMAINING:
+    1015
+    ----
+    SPENDING:
+    3
+    REMAINING:
+    1018
+    ----
+    SPENDING:
+    -1000
+    REMAINING:
+    18
+    ----
     Final balance: 18
 
 
@@ -582,7 +804,7 @@ print("Final balance:", balance)
 balance = 1000
 
 for expense in [6, 5, 4, 3, -1000]:
-    if expense > 0:
+    if expense > 0: 
         print("Spending $", expense)
     else:
         print("Payday!")
@@ -2451,6 +2673,13 @@ for record in results:
 ```
 
 
+
+
+    -3.05
+
+
+
+
 ```python
 total_height = 0
 
@@ -2811,7 +3040,7 @@ SELECT * FROM patrons
 
 
 ```python
-%%sql
+%%sql sqlite:///../data/circulation.sqlite
 SELECT * FROM patrons
     ORDER BY age DESC
     LIMIT 5;
@@ -2966,6 +3195,44 @@ SELECT * FROM patrons
     WHERE ...
 ```
 
+    Done.
+
+
+
+
+
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>age</th>
+        <th>email</th>
+        <th>zipcode</th>
+        <th>city</th>
+        <th>activity</th>
+    </tr>
+    <tr>
+        <td>23</td>
+        <td>Brittany Coleman</td>
+        <td>23</td>
+        <td>watsonscott@gmail.com</td>
+        <td>34912</td>
+        <td>North Stephenfort</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>517</td>
+        <td>Christina Bush</td>
+        <td>23</td>
+        <td>moranjennifer@hotmail.com</td>
+        <td>94699</td>
+        <td>South Danielport</td>
+        <td>7</td>
+    </tr>
+</table>
+
+
+
 
 ```python
 %%sql
@@ -3028,6 +3295,1187 @@ SELECT * FROM patrons
 SELECT * FROM patrons
     WHERE (age == 23) OR (activity == 7);
 ```
+
+    Done.
+
+
+
+
+
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>age</th>
+        <th>email</th>
+        <th>zipcode</th>
+        <th>city</th>
+        <th>activity</th>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>Michael Barnett</td>
+        <td>46</td>
+        <td>keith30@andersen.com</td>
+        <td>56064</td>
+        <td>Marystad</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>18</td>
+        <td>Vanessa Owen</td>
+        <td>12</td>
+        <td>hbailey@foley.com</td>
+        <td>39489</td>
+        <td>East Brookefort</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>23</td>
+        <td>Brittany Coleman</td>
+        <td>23</td>
+        <td>watsonscott@gmail.com</td>
+        <td>34912</td>
+        <td>North Stephenfort</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>24</td>
+        <td>Justin Butler</td>
+        <td>21</td>
+        <td>justinmejia@hotmail.com</td>
+        <td>51105</td>
+        <td>Romerofort</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>32</td>
+        <td>Tiffany Brooks</td>
+        <td>31</td>
+        <td>jeffreyburgess@gmail.com</td>
+        <td>10722</td>
+        <td>South Matthew</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>39</td>
+        <td>William Henderson</td>
+        <td>37</td>
+        <td>michaellee@hotmail.com</td>
+        <td>25139</td>
+        <td>New Terri</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>66</td>
+        <td>Mr. Andrew Hahn</td>
+        <td>23</td>
+        <td>showard@lee.com</td>
+        <td>50404</td>
+        <td>Colechester</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>69</td>
+        <td>Matthew Nielsen</td>
+        <td>39</td>
+        <td>gregory94@yahoo.com</td>
+        <td>36438</td>
+        <td>East Brookefort</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>72</td>
+        <td>Carolyn Jackson</td>
+        <td>32</td>
+        <td>nicole44@walls-anderson.com</td>
+        <td>49528</td>
+        <td>North Melissabury</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>76</td>
+        <td>Elizabeth Contreras</td>
+        <td>4</td>
+        <td>nmolina@gmail.com</td>
+        <td>51577</td>
+        <td>Loganchester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>92</td>
+        <td>Andrew Allison</td>
+        <td>43</td>
+        <td>ocontreras@yahoo.com</td>
+        <td>38735</td>
+        <td>North Stephenfort</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>96</td>
+        <td>Ryan Brown</td>
+        <td>19</td>
+        <td>alvarezelizabeth@hotmail.com</td>
+        <td>40498</td>
+        <td>New Hannah</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>100</td>
+        <td>Linda Taylor</td>
+        <td>46</td>
+        <td>garzacindy@reyes.org</td>
+        <td>97791</td>
+        <td>Port Stephanie</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>108</td>
+        <td>Gary Clark</td>
+        <td>29</td>
+        <td>anthonysilva@yahoo.com</td>
+        <td>92464</td>
+        <td>North Stephenfort</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>114</td>
+        <td>Olivia Perry</td>
+        <td>28</td>
+        <td>angelachambers@zamora-bradshaw.com</td>
+        <td>52321</td>
+        <td>Cooperton</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>124</td>
+        <td>Ashlee Marquez</td>
+        <td>39</td>
+        <td>zherrera@hotmail.com</td>
+        <td>48657</td>
+        <td>Port Stephanie</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>140</td>
+        <td>Richard Thomas</td>
+        <td>40</td>
+        <td>nfoster@mills-aguilar.com</td>
+        <td>53950</td>
+        <td>Walkerview</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>149</td>
+        <td>Aaron Lindsey</td>
+        <td>23</td>
+        <td>nancyzuniga@reed.com</td>
+        <td>34642</td>
+        <td>Colechester</td>
+        <td>8</td>
+    </tr>
+    <tr>
+        <td>150</td>
+        <td>Cody Reed</td>
+        <td>19</td>
+        <td>roger05@yahoo.com</td>
+        <td>07859</td>
+        <td>Colechester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>156</td>
+        <td>Connie Lawrence</td>
+        <td>40</td>
+        <td>xparker@gmail.com</td>
+        <td>93753</td>
+        <td>Brianchester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>163</td>
+        <td>Nathan Moore</td>
+        <td>34</td>
+        <td>juan94@yahoo.com</td>
+        <td>83166</td>
+        <td>Port Stephanie</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>171</td>
+        <td>Tamara Jenkins</td>
+        <td>23</td>
+        <td>donaldsonamy@smith-baker.info</td>
+        <td>72530</td>
+        <td>Doughertyside</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>179</td>
+        <td>Mr. Kevin Lewis</td>
+        <td>32</td>
+        <td>zamoratiffany@yahoo.com</td>
+        <td>53680</td>
+        <td>Lake Marissa</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>182</td>
+        <td>Chad Bell</td>
+        <td>43</td>
+        <td>colleen78@smith.com</td>
+        <td>09479</td>
+        <td>Colechester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>189</td>
+        <td>Joel Tran</td>
+        <td>23</td>
+        <td>patricklucas@hotmail.com</td>
+        <td>61576</td>
+        <td>Lake Michaelfort</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>198</td>
+        <td>Richard Brown</td>
+        <td>23</td>
+        <td>ismith@hotmail.com</td>
+        <td>89519</td>
+        <td>North Melissabury</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>203</td>
+        <td>Michelle Guerrero</td>
+        <td>42</td>
+        <td>john82@medina.org</td>
+        <td>82779</td>
+        <td>Colechester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>249</td>
+        <td>Kathleen Smith</td>
+        <td>5</td>
+        <td>stacey08@martinez.biz</td>
+        <td>58065</td>
+        <td>East Pamelaburgh</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>261</td>
+        <td>Tammie Rodriguez</td>
+        <td>0</td>
+        <td>karenhughes@gmail.com</td>
+        <td>54179</td>
+        <td>Deborahbury</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>271</td>
+        <td>Frank Franklin</td>
+        <td>23</td>
+        <td>morrowmatthew@yahoo.com</td>
+        <td>46865</td>
+        <td>Lake Michaelfort</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>273</td>
+        <td>Steven Ramirez MD</td>
+        <td>31</td>
+        <td>obailey@washington.net</td>
+        <td>33272</td>
+        <td>Gabriellechester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>274</td>
+        <td>Julie Richards</td>
+        <td>4</td>
+        <td>vgomez@kirk.biz</td>
+        <td>28993</td>
+        <td>Deborahbury</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>275</td>
+        <td>Scott Bell</td>
+        <td>44</td>
+        <td>jason84@yahoo.com</td>
+        <td>20699</td>
+        <td>Lake Marissa</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>288</td>
+        <td>James Kennedy</td>
+        <td>23</td>
+        <td>stephenshannah@patel.com</td>
+        <td>54653</td>
+        <td>New Terri</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>300</td>
+        <td>Daniel Duncan</td>
+        <td>50</td>
+        <td>bakeramber@coleman-bowers.com</td>
+        <td>81882</td>
+        <td>Rothton</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>301</td>
+        <td>Carolyn Jones</td>
+        <td>23</td>
+        <td>foleybrian@hotmail.com</td>
+        <td>16822</td>
+        <td>South Amandabury</td>
+        <td>8</td>
+    </tr>
+    <tr>
+        <td>305</td>
+        <td>John Wells</td>
+        <td>23</td>
+        <td>caitlin32@hotmail.com</td>
+        <td>13761</td>
+        <td>Rothton</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>311</td>
+        <td>Ronald Patterson</td>
+        <td>35</td>
+        <td>hdelgado@harris-wright.info</td>
+        <td>72175</td>
+        <td>Irwinside</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>318</td>
+        <td>Laura Davis</td>
+        <td>55</td>
+        <td>burkejoshua@bennett.com</td>
+        <td>55741</td>
+        <td>North Stephenfort</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>319</td>
+        <td>Patricia Suarez</td>
+        <td>27</td>
+        <td>olsoncathy@hotmail.com</td>
+        <td>62905</td>
+        <td>South Matthew</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>320</td>
+        <td>Melissa Lee</td>
+        <td>8</td>
+        <td>george87@yahoo.com</td>
+        <td>88123</td>
+        <td>North Cristinaview</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>328</td>
+        <td>Peter Mueller</td>
+        <td>36</td>
+        <td>cortezjames@anderson.biz</td>
+        <td>44867</td>
+        <td>Lake Marissa</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>332</td>
+        <td>Arthur Haynes</td>
+        <td>18</td>
+        <td>steven52@yahoo.com</td>
+        <td>80823</td>
+        <td>Colechester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>338</td>
+        <td>Kyle Torres</td>
+        <td>23</td>
+        <td>gutierrezsharon@gmail.com</td>
+        <td>55577</td>
+        <td>Irwinside</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>346</td>
+        <td>Jamie Patel</td>
+        <td>57</td>
+        <td>ggonzalez@shelton-jones.info</td>
+        <td>75196</td>
+        <td>Colechester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>359</td>
+        <td>Cindy Hale</td>
+        <td>43</td>
+        <td>april50@cannon-mcclure.info</td>
+        <td>72176</td>
+        <td>North Melinda</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>360</td>
+        <td>Angela Mullins</td>
+        <td>23</td>
+        <td>ykaiser@hotmail.com</td>
+        <td>79674</td>
+        <td>North Cristinaview</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>370</td>
+        <td>Brian Kidd</td>
+        <td>16</td>
+        <td>davilakyle@yahoo.com</td>
+        <td>59693</td>
+        <td>South Danielport</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>377</td>
+        <td>Jonathan Warren</td>
+        <td>40</td>
+        <td>brandonjohnson@yahoo.com</td>
+        <td>54465</td>
+        <td>East Williamport</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>419</td>
+        <td>John Gomez</td>
+        <td>23</td>
+        <td>evansanthony@gmail.com</td>
+        <td>27498</td>
+        <td>East Pamelaburgh</td>
+        <td>8</td>
+    </tr>
+    <tr>
+        <td>425</td>
+        <td>Paula Deleon</td>
+        <td>22</td>
+        <td>xmichael@santos.com</td>
+        <td>02618</td>
+        <td>Michelefurt</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>434</td>
+        <td>Edward Cox</td>
+        <td>21</td>
+        <td>lewismatthew@gmail.com</td>
+        <td>06201</td>
+        <td>Lake Jennifer</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>474</td>
+        <td>Joe Arnold</td>
+        <td>16</td>
+        <td>johnsondiane@bowman.com</td>
+        <td>13024</td>
+        <td>Deborahbury</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>484</td>
+        <td>Wesley Price</td>
+        <td>61</td>
+        <td>munozkevin@gmail.com</td>
+        <td>48788</td>
+        <td>Loganchester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>493</td>
+        <td>Natalie Miller</td>
+        <td>3</td>
+        <td>clifford85@bailey.com</td>
+        <td>36822</td>
+        <td>Walkerview</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>506</td>
+        <td>Dawn Clark</td>
+        <td>42</td>
+        <td>pmurphy@smith.com</td>
+        <td>32858</td>
+        <td>Romerofort</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>513</td>
+        <td>Mary Carter</td>
+        <td>47</td>
+        <td>qgeorge@wright-smith.com</td>
+        <td>91170</td>
+        <td>Irwinside</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>517</td>
+        <td>Christina Bush</td>
+        <td>23</td>
+        <td>moranjennifer@hotmail.com</td>
+        <td>94699</td>
+        <td>South Danielport</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>519</td>
+        <td>Brian Rubio</td>
+        <td>65</td>
+        <td>mchambers@rice.com</td>
+        <td>80314</td>
+        <td>Thomasmouth</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>520</td>
+        <td>Michael Simmons</td>
+        <td>44</td>
+        <td>theodorebradley@thomas.com</td>
+        <td>09004</td>
+        <td>South Amandabury</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>525</td>
+        <td>Bryce Smith</td>
+        <td>26</td>
+        <td>gpatel@sanchez.com</td>
+        <td>66196</td>
+        <td>Michelefurt</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>530</td>
+        <td>Christopher Yoder</td>
+        <td>23</td>
+        <td>estesjulie@moran.com</td>
+        <td>37078</td>
+        <td>East Brookefort</td>
+        <td>6</td>
+    </tr>
+    <tr>
+        <td>540</td>
+        <td>Jerry Fox</td>
+        <td>26</td>
+        <td>campbellmichael@carter-harris.com</td>
+        <td>04475</td>
+        <td>Loganchester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>543</td>
+        <td>Richard Leach</td>
+        <td>32</td>
+        <td>richardsonstephanie@young.com</td>
+        <td>97103</td>
+        <td>East Williamport</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>545</td>
+        <td>John Cox</td>
+        <td>52</td>
+        <td>duncandennis@yahoo.com</td>
+        <td>99204</td>
+        <td>Lake Marissa</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>548</td>
+        <td>Aaron Savage</td>
+        <td>30</td>
+        <td>phillipsjason@haynes.com</td>
+        <td>96235</td>
+        <td>Jamesfort</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>549</td>
+        <td>Nicholas Kennedy</td>
+        <td>25</td>
+        <td>andrewwelch@diaz.info</td>
+        <td>15272</td>
+        <td>Brianchester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>553</td>
+        <td>Nathan Waller</td>
+        <td>7</td>
+        <td>vflores@johnson-mclaughlin.biz</td>
+        <td>65076</td>
+        <td>Normanville</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>555</td>
+        <td>Valerie Williams</td>
+        <td>35</td>
+        <td>ryan78@smith-russell.org</td>
+        <td>16104</td>
+        <td>Brianchester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>568</td>
+        <td>John Hopkins</td>
+        <td>38</td>
+        <td>pcampbell@guzman.biz</td>
+        <td>80701</td>
+        <td>Brianchester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>572</td>
+        <td>Matthew Walsh</td>
+        <td>73</td>
+        <td>stanley25@rivera-wood.com</td>
+        <td>27152</td>
+        <td>Loganchester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>579</td>
+        <td>Kathleen Macdonald</td>
+        <td>26</td>
+        <td>wsmith@reed.com</td>
+        <td>18423</td>
+        <td>East Brookefort</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>586</td>
+        <td>Jessica Williams</td>
+        <td>5</td>
+        <td>cbeck@chan.net</td>
+        <td>45715</td>
+        <td>Lake Marissa</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>593</td>
+        <td>Janet Austin</td>
+        <td>25</td>
+        <td>brian34@watson.biz</td>
+        <td>85172</td>
+        <td>Michelefurt</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>595</td>
+        <td>John Flores</td>
+        <td>31</td>
+        <td>jacobsonjeremiah@yahoo.com</td>
+        <td>92526</td>
+        <td>East Pamelaburgh</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>604</td>
+        <td>Theresa Fletcher</td>
+        <td>18</td>
+        <td>jeffrey11@hotmail.com</td>
+        <td>32334</td>
+        <td>Loganchester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>628</td>
+        <td>Jay Cohen</td>
+        <td>59</td>
+        <td>brian06@gmail.com</td>
+        <td>67395</td>
+        <td>Deborahbury</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>629</td>
+        <td>Joseph Wall</td>
+        <td>23</td>
+        <td>jimmynichols@gmail.com</td>
+        <td>27272</td>
+        <td>East Brookefort</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>645</td>
+        <td>Robert Anderson</td>
+        <td>40</td>
+        <td>matthewmatthews@wood.biz</td>
+        <td>53036</td>
+        <td>South Amandabury</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>652</td>
+        <td>Brooke Harvey</td>
+        <td>53</td>
+        <td>rowlandmichelle@hansen.biz</td>
+        <td>65068</td>
+        <td>Kevinmouth</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>656</td>
+        <td>Jesse Sanders</td>
+        <td>46</td>
+        <td>zwarner@yahoo.com</td>
+        <td>78993</td>
+        <td>South Matthew</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>662</td>
+        <td>Thomas Trevino</td>
+        <td>0</td>
+        <td>alex64@yahoo.com</td>
+        <td>44979</td>
+        <td>South Amandabury</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>667</td>
+        <td>Danielle Stewart</td>
+        <td>39</td>
+        <td>mbrown@jones.net</td>
+        <td>06379</td>
+        <td>East Williamport</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>674</td>
+        <td>Christine Kane</td>
+        <td>44</td>
+        <td>michaelgardner@foster.biz</td>
+        <td>93075</td>
+        <td>North Cristinaview</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>676</td>
+        <td>Jonathan Wilkinson</td>
+        <td>36</td>
+        <td>hgomez@valdez-smith.net</td>
+        <td>01196</td>
+        <td>East Pamelaburgh</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>679</td>
+        <td>Tammy Walton</td>
+        <td>28</td>
+        <td>alexistorres@yahoo.com</td>
+        <td>33255</td>
+        <td>Loganchester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>681</td>
+        <td>Tonya James</td>
+        <td>26</td>
+        <td>cscott@caldwell.com</td>
+        <td>49615</td>
+        <td>North Stephenfort</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>686</td>
+        <td>Theresa Clayton</td>
+        <td>28</td>
+        <td>dominicreynolds@hotmail.com</td>
+        <td>99288</td>
+        <td>East Pamelaburgh</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>690</td>
+        <td>James Jimenez</td>
+        <td>24</td>
+        <td>ocardenas@parker-flynn.com</td>
+        <td>65701</td>
+        <td>Port Stephanie</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>694</td>
+        <td>Sarah Morris</td>
+        <td>23</td>
+        <td>garciacourtney@hotmail.com</td>
+        <td>33789</td>
+        <td>North Cristinaview</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>697</td>
+        <td>Jodi Flores MD</td>
+        <td>54</td>
+        <td>tyler32@smith.com</td>
+        <td>15761</td>
+        <td>Austinshire</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>699</td>
+        <td>Laura Taylor</td>
+        <td>30</td>
+        <td>wendy47@hotmail.com</td>
+        <td>78209</td>
+        <td>Romerofort</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>707</td>
+        <td>Monica Mcdowell</td>
+        <td>41</td>
+        <td>shannondylan@yahoo.com</td>
+        <td>16828</td>
+        <td>Cooperton</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>731</td>
+        <td>Tammy Anderson</td>
+        <td>50</td>
+        <td>joshuajohnson@yahoo.com</td>
+        <td>31621</td>
+        <td>New Hannah</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>735</td>
+        <td>Mariah Patrick</td>
+        <td>26</td>
+        <td>ashleynewman@gmail.com</td>
+        <td>55596</td>
+        <td>South Amandabury</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>751</td>
+        <td>Travis Contreras</td>
+        <td>21</td>
+        <td>kristi27@camacho.info</td>
+        <td>49214</td>
+        <td>Michelefurt</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>762</td>
+        <td>Morgan Perez</td>
+        <td>14</td>
+        <td>joshuaberg@davis.com</td>
+        <td>98516</td>
+        <td>Colechester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>767</td>
+        <td>Isaac Rogers</td>
+        <td>23</td>
+        <td>rcox@yahoo.com</td>
+        <td>27388</td>
+        <td>Port Stephanie</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>770</td>
+        <td>Rhonda Carr</td>
+        <td>23</td>
+        <td>hallhenry@martin.com</td>
+        <td>88594</td>
+        <td>Deborahbury</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>773</td>
+        <td>Jodi Mendoza</td>
+        <td>34</td>
+        <td>todd15@carlson.net</td>
+        <td>40475</td>
+        <td>Walkerview</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>783</td>
+        <td>Lori Ferguson</td>
+        <td>48</td>
+        <td>gduffy@hotmail.com</td>
+        <td>36852</td>
+        <td>Loganchester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>784</td>
+        <td>Shelby Knight DDS</td>
+        <td>14</td>
+        <td>alexis71@yahoo.com</td>
+        <td>38548</td>
+        <td>Lake Marissa</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>787</td>
+        <td>Joseph Nguyen</td>
+        <td>28</td>
+        <td>chenregina@meyer-petersen.info</td>
+        <td>60839</td>
+        <td>East Williamport</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>788</td>
+        <td>Shawn Cabrera</td>
+        <td>34</td>
+        <td>mallory20@williams-gonzalez.com</td>
+        <td>70069</td>
+        <td>South Danielport</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>789</td>
+        <td>Brittany Wilson</td>
+        <td>37</td>
+        <td>smitherik@park-rojas.com</td>
+        <td>44659</td>
+        <td>Lake Jennifer</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>791</td>
+        <td>Amanda Mills</td>
+        <td>23</td>
+        <td>lesliegray@bullock-wilson.com</td>
+        <td>71845</td>
+        <td>New Hannah</td>
+        <td>6</td>
+    </tr>
+    <tr>
+        <td>809</td>
+        <td>Alexis Boyd</td>
+        <td>23</td>
+        <td>amanda14@gmail.com</td>
+        <td>67210</td>
+        <td>Kevinmouth</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>823</td>
+        <td>Crystal Lloyd</td>
+        <td>27</td>
+        <td>ybaird@le.com</td>
+        <td>64617</td>
+        <td>North Stephenfort</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>846</td>
+        <td>Leonard Diaz</td>
+        <td>56</td>
+        <td>kvaughn@brown-grant.com</td>
+        <td>91487</td>
+        <td>South Stanleytown</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>865</td>
+        <td>Ryan Cunningham</td>
+        <td>29</td>
+        <td>charles89@fischer.com</td>
+        <td>56934</td>
+        <td>Walkerview</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>867</td>
+        <td>Valerie Cowan</td>
+        <td>51</td>
+        <td>merrittmichele@mcgee-salinas.org</td>
+        <td>93629</td>
+        <td>Lake Michaelfort</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>873</td>
+        <td>James Jefferson</td>
+        <td>19</td>
+        <td>bfoster@yahoo.com</td>
+        <td>62383</td>
+        <td>New Hannah</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>874</td>
+        <td>Katie Mcclure</td>
+        <td>54</td>
+        <td>michaelayala@johnston-mills.org</td>
+        <td>66196</td>
+        <td>Normanville</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>879</td>
+        <td>Eugene Sanford</td>
+        <td>47</td>
+        <td>csmith@howard.com</td>
+        <td>57432</td>
+        <td>Port Stephanie</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>887</td>
+        <td>Charles Buckley</td>
+        <td>23</td>
+        <td>rcooper@hotmail.com</td>
+        <td>01717</td>
+        <td>South Danielport</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>891</td>
+        <td>Kevin Bartlett</td>
+        <td>29</td>
+        <td>gevans@gmail.com</td>
+        <td>42105</td>
+        <td>Port Stephanie</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>893</td>
+        <td>Cody Middleton</td>
+        <td>18</td>
+        <td>mvaldez@yahoo.com</td>
+        <td>70165</td>
+        <td>Marystad</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>902</td>
+        <td>Elizabeth Gentry</td>
+        <td>23</td>
+        <td>juliereyes@yahoo.com</td>
+        <td>59012</td>
+        <td>Kevinmouth</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>916</td>
+        <td>Brenda Curry</td>
+        <td>39</td>
+        <td>heather67@wilson-harris.com</td>
+        <td>90491</td>
+        <td>Brianchester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>920</td>
+        <td>Patricia Chen</td>
+        <td>44</td>
+        <td>stoutamanda@king.com</td>
+        <td>82128</td>
+        <td>Deborahbury</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>922</td>
+        <td>Kyle Meyer</td>
+        <td>45</td>
+        <td>jameshill@evans.com</td>
+        <td>59157</td>
+        <td>Lake Michaelfort</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>941</td>
+        <td>Tamara Mcintosh</td>
+        <td>31</td>
+        <td>ipowell@gmail.com</td>
+        <td>74004</td>
+        <td>Marystad</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>951</td>
+        <td>Cynthia Vasquez</td>
+        <td>27</td>
+        <td>tinamendez@hotmail.com</td>
+        <td>97812</td>
+        <td>North Melinda</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>954</td>
+        <td>Rebecca Young</td>
+        <td>31</td>
+        <td>melanieclark@carter-oconnor.org</td>
+        <td>56193</td>
+        <td>Loganchester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>976</td>
+        <td>Kenneth Hayes</td>
+        <td>14</td>
+        <td>christineyoung@hammond.com</td>
+        <td>33795</td>
+        <td>Cooperton</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>978</td>
+        <td>Mr. Dakota Salazar</td>
+        <td>40</td>
+        <td>aguilarchristine@williams-brady.com</td>
+        <td>86674</td>
+        <td>Colechester</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>985</td>
+        <td>Victoria Cook</td>
+        <td>24</td>
+        <td>jaimenelson@yahoo.com</td>
+        <td>41995</td>
+        <td>East Adam</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>993</td>
+        <td>David Mcgee</td>
+        <td>12</td>
+        <td>boothann@hunt.com</td>
+        <td>75331</td>
+        <td>South Amandabury</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>998</td>
+        <td>Calvin Mejia</td>
+        <td>48</td>
+        <td>egilbert@gmail.com</td>
+        <td>55266</td>
+        <td>South Amandabury</td>
+        <td>7</td>
+    </tr>
+</table>
+
+
 
 ## Pattern Matching with `LIKE`
 
@@ -3146,7 +4594,7 @@ Special characters:
 
 Or even more precise, include the space:
     
-`WHERE name LIKE ' %Smith'`
+`WHERE name LIKE '% Smith'`
 
 ### Practice
 
@@ -3159,7 +4607,7 @@ Or even more precise, include the space:
 ```python
 %%sql
 SELECT * FROM patrons
-    WHERE ...;
+    WHERE ...
 ```
 
 # Adding relations to the relational database with `JOIN`
@@ -3435,10 +4883,52 @@ SELECT books.title, books.author, circulation.* FROM circulation
 
 ```python
 %%sql
-SELECT books.title, books.author, circulation.* FROM circulation
+SELECT books.title, books.author, patrons.name, patrons.email, circulation.* FROM circulation
     JOIN books ON (circulation.book_id == books.id)
+    JOIN patrons ON (circulation.patron_id == patrons.id) 
     LIMIT 2;
 ```
+
+    Done.
+
+
+
+
+
+<table>
+    <tr>
+        <th>title</th>
+        <th>author</th>
+        <th>name</th>
+        <th>email</th>
+        <th>book_id</th>
+        <th>patron_id</th>
+        <th>checkout_time</th>
+        <th>return_time</th>
+    </tr>
+    <tr>
+        <td>The Curious Incident of the Dog in the Night-time</td>
+        <td>Mark Haddon</td>
+        <td>Michelle Wood</td>
+        <td>fcain@quinn.info</td>
+        <td>1898</td>
+        <td>862</td>
+        <td>2017-05-11 16:53:33.000000</td>
+        <td>2017-06-09 16:40:11.804214</td>
+    </tr>
+    <tr>
+        <td>The Catcher in the Rye: Annotations and Study Aids</td>
+        <td>J.D. Salinger</td>
+        <td>Joseph Santiago</td>
+        <td>jennifer23@gmail.com</td>
+        <td>450</td>
+        <td>215</td>
+        <td>2018-01-05 13:07:20.000000</td>
+        <td>2018-01-23 10:00:01.071255</td>
+    </tr>
+</table>
+
+
 
 ## Different types of `JOIN`s
 
@@ -3506,7 +4996,7 @@ Return all records that are in either of the tables.
 
 ### Practice with INNER JOIN (the default JOIN)
 
-- How do we retrieve all the books read by 8-year olds?
+- How do we retrieve all the books checked out by 8-year olds?
     - (I made up this data... these aren't books kids are reading!)
 - Who has most recently returned a book?
 - Who has most recently checked out _The Catcher in the Rye_?
@@ -3518,6 +5008,116 @@ SELECT books.title, books.author, circulation.* FROM circulation
     JOIN books ON (circulation.book_id == books.id)
     ...;
 ```
+
+    Done.
+
+
+
+
+
+<table>
+    <tr>
+        <th>title</th>
+        <th>age</th>
+        <th>name</th>
+        <th>book_id</th>
+        <th>patron_id</th>
+        <th>checkout_time</th>
+        <th>return_time</th>
+    </tr>
+    <tr>
+        <td>The Catcher in the Rye</td>
+        <td>19</td>
+        <td>James Jefferson</td>
+        <td>253</td>
+        <td>873</td>
+        <td>2018-03-24 12:25:52.000000</td>
+        <td>None</td>
+    </tr>
+    <tr>
+        <td>The Catcher in the Rye</td>
+        <td>32</td>
+        <td>Tonya Patel</td>
+        <td>253</td>
+        <td>214</td>
+        <td>2018-03-08 23:16:41.000000</td>
+        <td>2018-03-29 06:05:36.533145</td>
+    </tr>
+    <tr>
+        <td>The Catcher in the Rye</td>
+        <td>42</td>
+        <td>Michelle Guerrero</td>
+        <td>253</td>
+        <td>203</td>
+        <td>2018-02-10 06:36:57.000000</td>
+        <td>2018-03-13 23:11:00.378408</td>
+    </tr>
+    <tr>
+        <td>The Catcher in the Rye</td>
+        <td>19</td>
+        <td>Samuel Rodriguez</td>
+        <td>253</td>
+        <td>950</td>
+        <td>2018-01-20 17:55:12.000000</td>
+        <td>2018-02-21 11:41:00.138992</td>
+    </tr>
+    <tr>
+        <td>The Catcher in the Rye</td>
+        <td>39</td>
+        <td>Kyle Perez</td>
+        <td>253</td>
+        <td>128</td>
+        <td>2018-01-17 01:35:07.000000</td>
+        <td>2018-02-19 21:54:53.482573</td>
+    </tr>
+    <tr>
+        <td>The Catcher in the Rye</td>
+        <td>13</td>
+        <td>Darrell Pugh</td>
+        <td>253</td>
+        <td>689</td>
+        <td>2017-10-27 10:27:09.000000</td>
+        <td>2017-11-21 02:39:20.430451</td>
+    </tr>
+    <tr>
+        <td>The Catcher in the Rye</td>
+        <td>30</td>
+        <td>Roberto Harris</td>
+        <td>253</td>
+        <td>217</td>
+        <td>2017-10-16 13:49:14.000000</td>
+        <td>2017-10-24 16:06:45.626282</td>
+    </tr>
+    <tr>
+        <td>The Catcher in the Rye</td>
+        <td>25</td>
+        <td>Joshua Martinez</td>
+        <td>253</td>
+        <td>558</td>
+        <td>2017-09-28 06:40:16.000000</td>
+        <td>2017-10-26 10:53:11.369458</td>
+    </tr>
+    <tr>
+        <td>The Catcher in the Rye</td>
+        <td>35</td>
+        <td>Timothy Mckenzie</td>
+        <td>253</td>
+        <td>714</td>
+        <td>2017-05-30 07:01:00.000000</td>
+        <td>2017-07-09 08:38:16.266941</td>
+    </tr>
+    <tr>
+        <td>The Catcher in the Rye</td>
+        <td>22</td>
+        <td>John Ellis</td>
+        <td>253</td>
+        <td>491</td>
+        <td>2017-05-18 18:13:03.000000</td>
+        <td>2017-06-11 11:13:43.317929</td>
+    </tr>
+</table>
+
+
 
 Here's a semi-realistic use: retrieve the emails of anybody that hasn't returned their book yet:
 
@@ -6278,7 +7878,7 @@ teststring.upper()
 
 
 
-    'HELLO WORLD'
+    'hELLO WORLD'
 
 
 
@@ -6396,7 +7996,5 @@ Dataset: Prestige of Canadian Occupations - [CSV](http://vincentarelbundock.gith
 
 
 ```python
-
-
 
 ```
