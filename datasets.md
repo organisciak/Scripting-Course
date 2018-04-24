@@ -18,3 +18,4 @@ Here are some notable dataset sources for working with. Some of these we'll use 
 - [Kaggle](https://www.kaggle.com/datasets)
 - ‎[SNAP](https://snap.stanford.edu/data/)
 - [RDatasets](https://vincentarelbundock.github.io/Rdatasets/)
+- [Awesome Public Datasets](https://github.com/awesomedata/awesome-public-datasets)
