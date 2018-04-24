@@ -307,7 +307,8 @@ Providing an index explicitly:
 
 
 ```python
-my_series = pd.Series(['John', 'Paul', 'George', 'Ringo'], index=["Smart One", "Cute One", "Quiet One", "Funny One"])
+my_series = pd.Series(['John', 'Paul', 'George', 'Ringo'],
+                      index=["Smart One", "Cute One", "Quiet One", "Funny One"])
 my_series
 ```
 
@@ -658,7 +659,7 @@ population.head(5)
     AR    2643930
     AS      60324
     AZ    6758252
-    Name: Unduplicated Population, dtype: int64
+    Name: Population, dtype: int64
 
 
 
@@ -738,7 +739,7 @@ population.std()
 
 
 
-    11570703.733362896
+    133881184885258.06
 
 
 
@@ -1040,6 +1041,11 @@ my_df['col1']
 
 
 
+
+```python
+
+```
+
 ### Selecting rows by comparison
 
 Just like with a `Series`, a `DataFrame` can take True / False values
@@ -1151,6 +1157,45 @@ SELECT * FROM my_df
 ```
 
 
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col1</th>
+      <th>col2</th>
+      <th>col3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>row1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
 ```python
 my_df[my_df.col1 == 1]
 ```
@@ -1202,6 +1247,48 @@ SELECT col2, col3 FROM my_df;
 ```python
 
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col2</th>
+      <th>col3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>row1</th>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>row2</th>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 
 ```python
@@ -1357,8 +1444,97 @@ SELECT col2, col3 FROM my_df
 
 
 ```python
+my_df
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col1</th>
+      <th>col2</th>
+      <th>col3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>row1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>row2</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
 
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col1</th>
+      <th>col2</th>
+      <th>col3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>row2</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 
 ```python
@@ -1615,6 +1791,153 @@ Tip: Method chaining is useful here!
 
 ```
 
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>abv</th>
+      <th>ibu</th>
+      <th>id</th>
+      <th>name</th>
+      <th>type</th>
+      <th>brewery_id</th>
+      <th>ounces</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>20</th>
+      <td>0.082</td>
+      <td>NaN</td>
+      <td>1592</td>
+      <td>He Said Belgian-Style Tripel</td>
+      <td>Tripel</td>
+      <td>368</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>171</th>
+      <td>0.092</td>
+      <td>5.0</td>
+      <td>704</td>
+      <td>Devils Tramping Ground Tripel</td>
+      <td>Tripel</td>
+      <td>360</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>434</th>
+      <td>0.082</td>
+      <td>NaN</td>
+      <td>1178</td>
+      <td>Vivant Tripel</td>
+      <td>Tripel</td>
+      <td>10</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>444</th>
+      <td>0.092</td>
+      <td>NaN</td>
+      <td>670</td>
+      <td>Vivant Tripel (2012)</td>
+      <td>Tripel</td>
+      <td>10</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>952</th>
+      <td>0.083</td>
+      <td>NaN</td>
+      <td>2646</td>
+      <td>Orabelle</td>
+      <td>Tripel</td>
+      <td>6</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>0.090</td>
+      <td>NaN</td>
+      <td>1570</td>
+      <td>Lemon Shandy Tripel</td>
+      <td>Tripel</td>
+      <td>124</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>1265</th>
+      <td>0.090</td>
+      <td>30.0</td>
+      <td>1356</td>
+      <td>Monk from the 'Yunk</td>
+      <td>Tripel</td>
+      <td>356</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>1896</th>
+      <td>0.082</td>
+      <td>NaN</td>
+      <td>2536</td>
+      <td>Tripel Deke</td>
+      <td>Tripel</td>
+      <td>64</td>
+      <td>24.0</td>
+    </tr>
+    <tr>
+      <th>2103</th>
+      <td>0.085</td>
+      <td>34.0</td>
+      <td>2575</td>
+      <td>Wooden Rooster</td>
+      <td>Tripel</td>
+      <td>45</td>
+      <td>16.9</td>
+    </tr>
+    <tr>
+      <th>2114</th>
+      <td>0.085</td>
+      <td>NaN</td>
+      <td>537</td>
+      <td>Velvet Rooster</td>
+      <td>Tripel</td>
+      <td>45</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>2312</th>
+      <td>0.092</td>
+      <td>25.0</td>
+      <td>1770</td>
+      <td>Voodoo Love Child</td>
+      <td>Tripel</td>
+      <td>322</td>
+      <td>12.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 ### Quick Summary Stats
 
 
@@ -1737,6 +2060,11 @@ Here's how Pandas is *pitched* in their [documentation](https://pandas.pydata.or
 ![](../images/split-apply-combine.png)
 
 ![](../images/example-split-apply-combine.png)
+
+
+```python
+
+```
 
 You don't have to split by just *one* property.
 
