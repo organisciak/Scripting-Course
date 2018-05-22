@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-<title>07-pandas-review-mongo-intro slides</title>
+<title>09-regular-expressions slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11830,7 +11830,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Scripting-Week-7:-MongoDB-and-Semi-Structured-Data">Scripting Week 7: MongoDB and Semi-Structured Data<a class="anchor-link" href="#Scripting-Week-7:-MongoDB-and-Semi-Structured-Data">&#182;</a></h1>
+<h1 id="Regular-Expressions">Regular Expressions<a class="anchor-link" href="#Regular-Expressions">&#182;</a></h1>
 </div>
 </div>
 </div></section><section>
@@ -11842,7 +11842,7 @@ a.anchor-link {
 <h2 id="Announcements">Announcements<a class="anchor-link" href="#Announcements">&#182;</a></h2>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11857,236 +11857,177 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Load sample data:</p>
+<h2 id="Looking-Back">Looking Back<a class="anchor-link" href="#Looking-Back">&#182;</a></h2><p><em>You're killing it!</em></p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[164]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">movies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/movielens_small.csv&#39;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">movies</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">12345</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>
-<span class="n">df</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[164]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>userId</th>
-      <th>rating</th>
-      <th>genres</th>
-      <th>timestamp</th>
-      <th>year</th>
-    </tr>
-    <tr>
-      <th>title</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Bringing Up Baby</th>
-      <td>481</td>
-      <td>4.0</td>
-      <td>Comedy</td>
-      <td>1437001472</td>
-      <td>1938</td>
-    </tr>
-    <tr>
-      <th>Long, Hot Summer, The</th>
-      <td>311</td>
-      <td>3.5</td>
-      <td>Drama</td>
-      <td>1061927755</td>
-      <td>1958</td>
-    </tr>
-    <tr>
-      <th>Net, The</th>
-      <td>191</td>
-      <td>3.0</td>
-      <td>Action</td>
-      <td>839925608</td>
-      <td>1995</td>
-    </tr>
-    <tr>
-      <th>City Lights</th>
-      <td>648</td>
-      <td>4.5</td>
-      <td>Comedy</td>
-      <td>1176754888</td>
-      <td>1931</td>
-    </tr>
-    <tr>
-      <th>Eagle vs Shark</th>
-      <td>132</td>
-      <td>4.0</td>
-      <td>Comedy</td>
-      <td>1284496709</td>
-      <td>2007</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[178]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[178]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>userId</th>
-      <th>rating</th>
-      <th>genres</th>
-      <th>timestamp</th>
-      <th>year</th>
-    </tr>
-    <tr>
-      <th>title</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Bringing Up Baby</th>
-      <td>481</td>
-      <td>4.0</td>
-      <td>Comedy</td>
-      <td>1437001472</td>
-      <td>1938</td>
-    </tr>
-    <tr>
-      <th>Long, Hot Summer, The</th>
-      <td>311</td>
-      <td>3.5</td>
-      <td>Drama</td>
-      <td>1061927755</td>
-      <td>1958</td>
-    </tr>
-    <tr>
-      <th>Net, The</th>
-      <td>191</td>
-      <td>3.0</td>
-      <td>Action</td>
-      <td>839925608</td>
-      <td>1995</td>
-    </tr>
-    <tr>
-      <th>City Lights</th>
-      <td>648</td>
-      <td>4.5</td>
-      <td>Comedy</td>
-      <td>1176754888</td>
-      <td>1931</td>
-    </tr>
-    <tr>
-      <th>Eagle vs Shark</th>
-      <td>132</td>
-      <td>4.0</td>
-      <td>Comedy</td>
-      <td>1284496709</td>
-      <td>2007</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>How would you select:</p>
 <ul>
-<li>Rows 2:4</li>
-<li>The row titled "City Lights"</li>
-<li>The first, second, and fifth rows</li>
-<li>The columns <code>genres</code> and <code>year</code></li>
-<li>The column <code>genres</code> as a Series</li>
-<li>The column <code>genres</code> as a DataFrame</li>
-<li>The rows where the year is <code>&gt; 1990</code></li>
-<li>The rows where the <code>genres</code> value is <code>Action</code> or <code>Drama</code></li>
+<li>SQL, Relational Databases<ul>
+<li>Selecting, sorting, limiting, joins</li>
+<li>Using SQLite in Jupyter with <code>%sql</code></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Data manipulation with Pandas<ul>
+<li>DataFrames ans Series's</li>
+<li>Import/Exporting to SQL</li>
+<li>Pulling tables from web</li>
+<li>Selection, sorting, counting</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Split-Apply-Combine<ul>
+<li>Groupby in Pandas</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Visualization</li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Semi-Structured data in MongoDB<ul>
+<li>JSON</li>
+<li>selection, sorting</li>
+<li>Aggregations</li>
+<li>MapReduce concepts</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>String pattern matching and extraction with regular expressions</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">-</span> <span class="n">Next</span> <span class="n">week</span>
+    <span class="o">-</span> <span class="n">Advanced</span> <span class="n">Pandas</span> <span class="p">(</span><span class="n">rolling</span><span class="p">,</span> <span class="n">dates</span><span class="p">)</span>
+    <span class="o">-</span> <span class="n">Web</span> <span class="n">scraping</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Final-Project-Updates">Final Project Updates<a class="anchor-link" href="#Final-Project-Updates">&#182;</a></h2>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Regular-Expressions"><center>Regular Expressions</center><a class="anchor-link" href="#Regular-Expressions">&#182;</a></h2><h3 id="aka-*regex*"><center>aka *regex*</center><a class="anchor-link" href="#aka-*regex*">&#182;</a></h3>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h3><p>Regular Expressions help you work with strings</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Pattern Matching</em></p>
+<p>e.g. Find all phone numbers on a web page</p>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Manipulation</em></p>
+<p>e.g. Match "{Lastname}, {Firstname}" in a set of records and rewrite it as "{Firstname} {Lastname}"</p>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Why?">Why?<a class="anchor-link" href="#Why?">&#182;</a></h2><ul>
+<li>Checking whether an input is valid (i.e. password, phone nuber, email, etc.)</li>
+<li>Cleaning data</li>
+<li>More complex data subsetting</li>
+<li>Working with user inputs or other unstructured data</li>
 </ul>
 
 </div>
@@ -12097,70 +12038,58 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Selecting-DataFrames">Selecting DataFrames<a class="anchor-link" href="#Selecting-DataFrames">&#182;</a></h3><p>Everything follows the pattern:</p>
-<p><code>df[ ... ]</code></p>
-<p>Except selecting rows by index name, which uses:</p>
-<p><code>df.loc[ ... ]</code></p>
-
+<h3 id="Q:-Where-can-you-use-regular-expressions?">Q: Where can you use regular expressions?<a class="anchor-link" href="#Q:-Where-can-you-use-regular-expressions?">&#182;</a></h3>
 </div>
 </div>
-</div></section><section>
+</div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Selecting rows by numeric index</strong></p>
-<p>Provide <code>x:y</code> notation in : <code>df[10:14]</code></p>
-<p><strong>Selecting rows by index name</strong></p>
-<p>Provide the name to <code>.loc[]</code>: <code>df.loc['Sherlock Holmes']</code></p>
-<p><strong>Selecting rows by inclusion criteria</strong></p>
-<p>Provide any collection (e.g. a list or Series) of True/False values:</p>
-
-<pre><code>df[[True, False, False, True, True]]</code></pre>
-
-<pre><code>df[df.year &gt; 1996]</code></pre>
-
+<h3 id="A:-Many,-many-places!">A: Many, many places!<a class="anchor-link" href="#A:-Many,-many-places!">&#182;</a></h3>
 </div>
 </div>
-</div></section><section>
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Selecting multiple columns</strong></p>
-<p>Provide a collection of strings, referencing the column names:</p>
-
-<pre><code>df[['genres', 'year']]</code></pre>
-<p><strong>Selecting single column (as Series)</strong></p>
-
-<pre><code>df['year']</code></pre>
-<p>Or:</p>
-
-<pre><code>df.year</code></pre>
-<p>Consider the latter as the shortcut, not the main way.</p>
-<p>The output is a Series. To select a single column as a DataFrame, use list with only one value.</p>
+<h2 id="In-Python">In Python<a class="anchor-link" href="#In-Python">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">comment</span> <span class="o">=</span> <span class="s2">&quot;It was a dark and stormy night.&quot;</span>
+</pre></div>
 
 </div>
 </div>
-</div></section><section>
+</div>
+
+</div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Selecting-by-Index">Selecting by Index<a class="anchor-link" href="#Selecting-by-Index">&#182;</a></h2><p>In addition to passing a string to <code>.loc[]</code>:</p>
+<p>Find a simple string:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;City Lights&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;dark&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12171,16 +12100,11 @@ a.anchor-link {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[47]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>userId              648
-rating              4.5
-genres           Comedy
-timestamp    1176754888
-year               1931
-Name: City Lights, dtype: object</pre>
+<pre>[&#39;dark&#39;]</pre>
 </div>
 
 </div>
@@ -12188,23 +12112,23 @@ Name: City Lights, dtype: object</pre>
 </div>
 </div>
 
-</div></section><section>
+</div></div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You can pass a list of index names:</p>
+<p>Find all sequences of one or more word characters:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;City Lights&#39;</span><span class="p">,</span> <span class="s1">&#39;Bringing Up Baby&#39;</span><span class="p">]]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\w+&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12215,7 +12139,74 @@ Name: City Lights, dtype: object</pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[48]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;It&#39;, &#39;was&#39;, &#39;a&#39;, &#39;dark&#39;, &#39;and&#39;, &#39;stormy&#39;, &#39;night&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="In-SQL">In SQL<a class="anchor-link" href="#In-SQL">&#182;</a></h2><p>SQLite doesn't support it, but...</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>MySQL</strong></p>
+<p>Select columns that match alphanumeric characters only:</p>
+
+<pre><code>SELECT * FROM table WHERE column REGEXP '^[A-Za-z0-9]+$';</code></pre>
+<p><strong>Postgresql</strong></p>
+<p>Match strings that include foo, bar, or baz:</p>
+
+<pre><code>SELECT * FROM table WHERE value ~ 'foo|bar|baz';</code></pre>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="In-Pandas">In Pandas<a class="anchor-link" href="#In-Pandas">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">movies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/organisciak/Scripting-Course/master/data/movielens_small.csv&#39;</span><span class="p">)</span>
+<span class="n">movies</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -12238,97 +12229,7 @@ Name: City Lights, dtype: object</pre>
       <th></th>
       <th>userId</th>
       <th>rating</th>
-      <th>genres</th>
-      <th>timestamp</th>
-      <th>year</th>
-    </tr>
-    <tr>
       <th>title</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>City Lights</th>
-      <td>648</td>
-      <td>4.5</td>
-      <td>Comedy</td>
-      <td>1176754888</td>
-      <td>1931</td>
-    </tr>
-    <tr>
-      <th>Bringing Up Baby</th>
-      <td>481</td>
-      <td>4.0</td>
-      <td>Comedy</td>
-      <td>1437001472</td>
-      <td>1938</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Setting-and-reseting-an-index:">Setting and reseting an index:<a class="anchor-link" href="#Setting-and-reseting-an-index:">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">df2</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[51]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>title</th>
-      <th>userId</th>
-      <th>rating</th>
       <th>genres</th>
       <th>timestamp</th>
       <th>year</th>
@@ -12336,49 +12237,13 @@ Name: City Lights, dtype: object</pre>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>Bringing Up Baby</td>
-      <td>481</td>
-      <td>4.0</td>
-      <td>Comedy</td>
-      <td>1437001472</td>
-      <td>1938</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Long, Hot Summer, The</td>
-      <td>311</td>
-      <td>3.5</td>
-      <td>Drama</td>
-      <td>1061927755</td>
-      <td>1958</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Net, The</td>
-      <td>191</td>
-      <td>3.0</td>
+      <th>52455</th>
+      <td>150</td>
+      <td>2.5</td>
+      <td>Deep Blue Sea</td>
       <td>Action</td>
-      <td>839925608</td>
-      <td>1995</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>City Lights</td>
-      <td>648</td>
-      <td>4.5</td>
-      <td>Comedy</td>
-      <td>1176754888</td>
-      <td>1931</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Eagle vs Shark</td>
-      <td>132</td>
-      <td>4.0</td>
-      <td>Comedy</td>
-      <td>1284496709</td>
-      <td>2007</td>
+      <td>1114308289</td>
+      <td>1999</td>
     </tr>
   </tbody>
 </table>
@@ -12390,13 +12255,24 @@ Name: City Lights, dtype: object</pre>
 </div>
 </div>
 
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Find movies where there is a digit (<code>\d</code>) right before the end of the string (<code>$</code>):</p>
+
+</div>
+</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;genres&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">matches</span> <span class="o">=</span> <span class="n">movies</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;\d$&#39;</span><span class="p">)</span>
+<span class="n">movies</span><span class="p">[</span><span class="n">matches</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12407,7 +12283,7 @@ Name: City Lights, dtype: object</pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[52]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -12428,61 +12304,104 @@ Name: City Lights, dtype: object</pre>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>title</th>
       <th>userId</th>
       <th>rating</th>
+      <th>title</th>
+      <th>genres</th>
       <th>timestamp</th>
       <th>year</th>
-    </tr>
-    <tr>
-      <th>genres</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>Comedy</th>
-      <td>Bringing Up Baby</td>
-      <td>481</td>
-      <td>4.0</td>
-      <td>1437001472</td>
-      <td>1938</td>
+      <th>12675</th>
+      <td>240</td>
+      <td>4.5</td>
+      <td>Spider-Man 2</td>
+      <td>Action</td>
+      <td>1098940773</td>
+      <td>2004</td>
     </tr>
     <tr>
-      <th>Drama</th>
-      <td>Long, Hot Summer, The</td>
-      <td>311</td>
+      <th>12681</th>
+      <td>272</td>
       <td>3.5</td>
-      <td>1061927755</td>
-      <td>1958</td>
+      <td>Spider-Man 2</td>
+      <td>Action</td>
+      <td>1453587659</td>
+      <td>2004</td>
     </tr>
     <tr>
-      <th>Action</th>
-      <td>Net, The</td>
-      <td>191</td>
-      <td>3.0</td>
-      <td>839925608</td>
+      <th>65682</th>
+      <td>270</td>
+      <td>5.0</td>
+      <td>District 9</td>
+      <td>Mystery</td>
+      <td>1469306052</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <th>2042</th>
+      <td>34</td>
+      <td>4.0</td>
+      <td>Apollo 13</td>
+      <td>Adventure</td>
+      <td>973746527</td>
       <td>1995</td>
     </tr>
     <tr>
-      <th>Comedy</th>
-      <td>City Lights</td>
-      <td>648</td>
-      <td>4.5</td>
-      <td>1176754888</td>
-      <td>1931</td>
+      <th>47856</th>
+      <td>518</td>
+      <td>3.0</td>
+      <td>Die Hard 2</td>
+      <td>Action</td>
+      <td>945367986</td>
+      <td>1990</td>
     </tr>
     <tr>
-      <th>Comedy</th>
-      <td>Eagle vs Shark</td>
-      <td>132</td>
+      <th>67444</th>
+      <td>213</td>
+      <td>3.0</td>
+      <td>Iron Man 3</td>
+      <td>Action</td>
+      <td>1462634213</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>87298</th>
+      <td>133</td>
+      <td>2.5</td>
+      <td>50/50</td>
+      <td>Comedy</td>
+      <td>1416148204</td>
+      <td>2011</td>
+    </tr>
+    <tr>
+      <th>12707</th>
+      <td>481</td>
+      <td>2.5</td>
+      <td>Spider-Man 2</td>
+      <td>Action</td>
+      <td>1437006309</td>
+      <td>2004</td>
+    </tr>
+    <tr>
+      <th>47844</th>
+      <td>388</td>
       <td>4.0</td>
-      <td>1284496709</td>
-      <td>2007</td>
+      <td>Die Hard 2</td>
+      <td>Action</td>
+      <td>946520884</td>
+      <td>1990</td>
+    </tr>
+    <tr>
+      <th>47858</th>
+      <td>534</td>
+      <td>3.0</td>
+      <td>Die Hard 2</td>
+      <td>Action</td>
+      <td>973375852</td>
+      <td>1990</td>
     </tr>
   </tbody>
 </table>
@@ -12494,14 +12413,366 @@ Name: City Lights, dtype: object</pre>
 </div>
 </div>
 
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Find movies where the substring ' Part ' exists:</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">matches</span> <span class="o">=</span> <span class="n">movies</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39; Part &#39;</span><span class="p">)</span>
+<span class="n">movies</span><span class="p">[</span><span class="n">matches</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>rating</th>
+      <th>title</th>
+      <th>genres</th>
+      <th>timestamp</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>41898</th>
+      <td>150</td>
+      <td>2.5</td>
+      <td>Father of the Bride Part II</td>
+      <td>Comedy</td>
+      <td>1114308628</td>
+      <td>1995</td>
+    </tr>
+    <tr>
+      <th>41356</th>
+      <td>570</td>
+      <td>4.5</td>
+      <td>Harry Potter and the Deathly Hallows: Part 1</td>
+      <td>Action</td>
+      <td>1475783785</td>
+      <td>2010</td>
+    </tr>
+    <tr>
+      <th>73544</th>
+      <td>654</td>
+      <td>5.0</td>
+      <td>History of the World: Part I</td>
+      <td>Comedy</td>
+      <td>1145394077</td>
+      <td>1981</td>
+    </tr>
+    <tr>
+      <th>41937</th>
+      <td>650</td>
+      <td>3.0</td>
+      <td>Father of the Bride Part II</td>
+      <td>Comedy</td>
+      <td>844883711</td>
+      <td>1995</td>
+    </tr>
+    <tr>
+      <th>25179</th>
+      <td>494</td>
+      <td>5.0</td>
+      <td>Godfather: Part II, The</td>
+      <td>Crime</td>
+      <td>1342747453</td>
+      <td>1974</td>
+    </tr>
+    <tr>
+      <th>25123</th>
+      <td>215</td>
+      <td>4.0</td>
+      <td>Godfather: Part II, The</td>
+      <td>Crime</td>
+      <td>860561181</td>
+      <td>1974</td>
+    </tr>
+    <tr>
+      <th>84670</th>
+      <td>260</td>
+      <td>3.0</td>
+      <td>Friday the 13th Part VI: Jason Lives</td>
+      <td>Horror</td>
+      <td>1207886252</td>
+      <td>1986</td>
+    </tr>
+    <tr>
+      <th>50272</th>
+      <td>232</td>
+      <td>3.0</td>
+      <td>Back to the Future Part III</td>
+      <td>Adventure</td>
+      <td>955086621</td>
+      <td>1990</td>
+    </tr>
+    <tr>
+      <th>50314</th>
+      <td>518</td>
+      <td>3.0</td>
+      <td>Back to the Future Part III</td>
+      <td>Adventure</td>
+      <td>945364886</td>
+      <td>1990</td>
+    </tr>
+    <tr>
+      <th>71101</th>
+      <td>564</td>
+      <td>5.0</td>
+      <td>Wes Craven's New Nightmare (Nightmare on Elm S...</td>
+      <td>Drama</td>
+      <td>974716031</td>
+      <td>1994</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Find movies that are named "The ... of ..."</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">matches</span> <span class="o">=</span> <span class="n">movies</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;^The .+ of &#39;</span><span class="p">)</span>
+<span class="n">movies</span><span class="p">[</span><span class="n">matches</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>rating</th>
+      <th>title</th>
+      <th>genres</th>
+      <th>timestamp</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>68280</th>
+      <td>553</td>
+      <td>5.0</td>
+      <td>The Hobbit: The Battle of the Five Armies</td>
+      <td>Adventure</td>
+      <td>1423011457</td>
+      <td>2014</td>
+    </tr>
+    <tr>
+      <th>93219</th>
+      <td>452</td>
+      <td>3.0</td>
+      <td>The Diary of Anne Frank</td>
+      <td>Drama</td>
+      <td>1112045092</td>
+      <td>1959</td>
+    </tr>
+    <tr>
+      <th>75358</th>
+      <td>404</td>
+      <td>4.0</td>
+      <td>The Importance of Being Earnest</td>
+      <td>Comedy</td>
+      <td>1026929076</td>
+      <td>1952</td>
+    </tr>
+    <tr>
+      <th>68258</th>
+      <td>624</td>
+      <td>3.5</td>
+      <td>The Theory of Everything</td>
+      <td>Drama</td>
+      <td>1449334366</td>
+      <td>2014</td>
+    </tr>
+    <tr>
+      <th>36114</th>
+      <td>607</td>
+      <td>4.0</td>
+      <td>The Count of Monte Cristo</td>
+      <td>Action</td>
+      <td>1151425776</td>
+      <td>2002</td>
+    </tr>
+    <tr>
+      <th>96814</th>
+      <td>380</td>
+      <td>5.0</td>
+      <td>The Jinx: The Life and Deaths of Robert Durst</td>
+      <td>Documentary</td>
+      <td>1465156469</td>
+      <td>2015</td>
+    </tr>
+    <tr>
+      <th>68247</th>
+      <td>15</td>
+      <td>1.0</td>
+      <td>The Theory of Everything</td>
+      <td>Drama</td>
+      <td>1425875426</td>
+      <td>2014</td>
+    </tr>
+    <tr>
+      <th>36102</th>
+      <td>294</td>
+      <td>4.0</td>
+      <td>The Count of Monte Cristo</td>
+      <td>Action</td>
+      <td>1112390008</td>
+      <td>2002</td>
+    </tr>
+    <tr>
+      <th>68274</th>
+      <td>205</td>
+      <td>4.0</td>
+      <td>The Hobbit: The Battle of the Five Armies</td>
+      <td>Adventure</td>
+      <td>1442137371</td>
+      <td>2014</td>
+    </tr>
+    <tr>
+      <th>96669</th>
+      <td>378</td>
+      <td>3.5</td>
+      <td>The Disappearance of Eleanor Rigby: Her</td>
+      <td>Drama</td>
+      <td>1443293021</td>
+      <td>2013</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="In-MongoDB">In MongoDB<a class="anchor-link" href="#In-MongoDB">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pymongo</span> <span class="k">import</span> <span class="n">MongoClient</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">()</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">week7</span>
+<span class="n">collection</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">cooking</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Find an recipe with an ingredient called "yellow ..."</p>
+
+</div>
+</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df3</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;genres&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
-<span class="n">df3</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection</span><span class="o">.</span><span class="n">find_one</span><span class="p">({</span>
+    <span class="s2">&quot;ingredients&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;$regex&quot;</span><span class="p">:</span> <span class="s2">&quot;yellow .*&quot;</span><span class="p">}</span>
+<span class="p">})</span>
 </pre></div>
 
 </div>
@@ -12514,198 +12785,22 @@ Name: City Lights, dtype: object</pre>
 
 <div class="output_area"><div class="prompt output_prompt">Out[55]:</div>
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>userId</th>
-      <th>rating</th>
-      <th>timestamp</th>
-      <th>year</th>
-    </tr>
-    <tr>
-      <th>genres</th>
-      <th>title</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Action</th>
-      <th>Net, The</th>
-      <td>191</td>
-      <td>3.0</td>
-      <td>839925608</td>
-      <td>1995</td>
-    </tr>
-    <tr>
-      <th rowspan="3" valign="top">Comedy</th>
-      <th>Bringing Up Baby</th>
-      <td>481</td>
-      <td>4.0</td>
-      <td>1437001472</td>
-      <td>1938</td>
-    </tr>
-    <tr>
-      <th>City Lights</th>
-      <td>648</td>
-      <td>4.5</td>
-      <td>1176754888</td>
-      <td>1931</td>
-    </tr>
-    <tr>
-      <th>Eagle vs Shark</th>
-      <td>132</td>
-      <td>4.0</td>
-      <td>1284496709</td>
-      <td>2007</td>
-    </tr>
-    <tr>
-      <th>Drama</th>
-      <th>Long, Hot Summer, The</th>
-      <td>311</td>
-      <td>3.5</td>
-      <td>1061927755</td>
-      <td>1958</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df3</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s1">&#39;Comedy&#39;</span><span class="p">)]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[62]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>userId</th>
-      <th>rating</th>
-      <th>timestamp</th>
-      <th>year</th>
-    </tr>
-    <tr>
-      <th>title</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Bringing Up Baby</th>
-      <td>481</td>
-      <td>4.0</td>
-      <td>1437001472</td>
-      <td>1938</td>
-    </tr>
-    <tr>
-      <th>City Lights</th>
-      <td>648</td>
-      <td>4.5</td>
-      <td>1176754888</td>
-      <td>1931</td>
-    </tr>
-    <tr>
-      <th>Eagle vs Shark</th>
-      <td>132</td>
-      <td>4.0</td>
-      <td>1284496709</td>
-      <td>2007</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df3</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s1">&#39;Comedy&#39;</span><span class="p">,</span> <span class="s1">&#39;City Lights&#39;</span><span class="p">)]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[61]:</div>
-
 
 <div class="output_text output_subarea output_execute_result">
-<pre>userId       6.480000e+02
-rating       4.500000e+00
-timestamp    1.176755e+09
-year         1.931000e+03
-Name: (Comedy, City Lights), dtype: float64</pre>
+<pre>{&#39;_id&#39;: ObjectId(&#39;5af1b7634b6d022f8c977dd0&#39;),
+ &#39;cuisine&#39;: &#39;southern_us&#39;,
+ &#39;id&#39;: 25693,
+ &#39;ingredients&#39;: [&#39;plain flour&#39;,
+  &#39;ground pepper&#39;,
+  &#39;salt&#39;,
+  &#39;tomatoes&#39;,
+  &#39;ground black pepper&#39;,
+  &#39;thyme&#39;,
+  &#39;eggs&#39;,
+  &#39;green tomatoes&#39;,
+  &#39;yellow corn meal&#39;,
+  &#39;milk&#39;,
+  &#39;vegetable oil&#39;]}</pre>
 </div>
 
 </div>
@@ -12713,399 +12808,33 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 </div>
 </div>
 
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Semi-structured-data">Semi-structured data<a class="anchor-link" href="#Semi-structured-data">&#182;</a></h1>
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Semi-structured data has a structure, but it is specific to the needs of the data.</p>
-<p>Tabular data always has two-dimensions - rows and columns (aka 'fields' and 'records') - semi-structured data is less predicatable.</p>
-
-</div>
-</div>
 </div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Common-Semi-Structured-Formats">Common Semi-Structured Formats<a class="anchor-link" href="#Common-Semi-Structured-Formats">&#182;</a></h3><p>JSON</p>
-<ul>
-<li>Hierarchical</li>
-<li>Organized around key/value pairs and lists of values</li>
-</ul>
-<p>XML</p>
-<ul>
-<li>Hierarchical, enclosed</li>
-<li>Organized with tags, properties, and values</li>
-</ul>
+<p>After unwinding the recipes to one doc per ingredient, find ingredients with a qualified salt:</p>
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="XML,-briefly">XML, briefly<a class="anchor-link" href="#XML,-briefly">&#182;</a></h3><p>XML has tags and attributes, representing elements, and content</p>
-<p><img src="../images/xml1.png" alt="Example XML"></p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>TAGS</p>
-<ul>
-<li><code>&lt;catalog&gt;</code></li>
-<li><code>&lt;book&gt;</code></li>
-<li><code>&lt;author&gt;</code></li>
-</ul>
-<p>ELEMENTS</p>
-<ul>
-<li>Everything from <code>&lt;book&gt;</code> to <code>&lt;/book&gt;</code></li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>ATTRIBUTES</p>
-<ul>
-<li>The ‘id’ of <code>&lt;book&gt;</code></li>
-</ul>
-<p>CONTENT</p>
-<ul>
-<li>“Gambardella, Matthew”</li>
-<li>“XML Developer’s Guide”</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="JSON">JSON<a class="anchor-link" href="#JSON">&#182;</a></h2><p>JSON is made up a few data value types:</p>
-<ul>
-<li>string</li>
-<li>number (like a float in Python)</li>
-<li>object (named collection, like a dictionary in Python)</li>
-<li>array  (unnamed collection, like a list in Python)</li>
-<li>boolean</li>
-<li>null</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Our 'containers' are objects and arrays. They can hold any of the other data types, <em>including other arrays and objects</em>.</p>
-<h3 id="Object">Object<a class="anchor-link" href="#Object">&#182;</a></h3><p>Key value pairs, surrounded by curly braces.</p>
-<ul>
-<li><code>:</code> separates key and value, <code>,</code> separates the item pairs.</li>
-<li>Keys have to be strings, values can be anything.</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Arrays">Arrays<a class="anchor-link" href="#Arrays">&#182;</a></h3><p>Nearly identical to lists in Python. Values, surrounded by square brackets.</p>
-<ul>
-<li><code>,</code> separates items.</li>
-<li>Values can be any data type.</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Objects">Objects<a class="anchor-link" href="#Objects">&#182;</a></h3><p>basic form:</p>
-<div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jill&quot;</span>
-<span class="p">}</span>
-</pre></div>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Adding key-value pairs:</p>
-<div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jill&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;profession&quot;</span><span class="p">:</span> <span class="s2">&quot;Juggler&quot;</span>
-<span class="p">}</span>
-</pre></div>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Values can be other types:</p>
-<div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jill&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;profession&quot;</span><span class="p">:</span> <span class="s2">&quot;Juggler&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">51</span>
-<span class="p">}</span>
-</pre></div>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>JSON is language-agnostic, so some things are different than in Python. e.g. <em>true / false</em> (lowercase) rather than Python's <em>True / False</em>:</p>
-<div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jill&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;profession&quot;</span><span class="p">:</span> <span class="s2">&quot;Juggler&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">51</span><span class="p">,</span>
-  <span class="nt">&quot;active&quot;</span><span class="p">:</span> <span class="kc">true</span>
-<span class="p">}</span>
-</pre></div>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The values can be arrays and objects - that's how things start to get deep:</p>
-<div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jill&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;profession&quot;</span><span class="p">:</span> <span class="s2">&quot;Juggler&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">51</span><span class="p">,</span>
-  <span class="nt">&quot;active&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;tools&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ball&quot;</span><span class="p">,</span> <span class="s2">&quot;handkerchief&quot;</span><span class="p">,</span> <span class="s2">&quot;flaming motorcycle&quot;</span><span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Nested Object:</p>
-<div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jill&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;profession&quot;</span><span class="p">:</span> <span class="s2">&quot;Juggler&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">51</span><span class="p">,</span>
-  <span class="nt">&quot;active&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;tools&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ball&quot;</span><span class="p">,</span> <span class="s2">&quot;handkerchief&quot;</span><span class="p">,</span> <span class="s2">&quot;flaming motorcycle&quot;</span><span class="p">],</span>
-  <span class="nt">&quot;awards&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;Tri-City Juggling Symposium 2010&quot;</span><span class="p">:</span> <span class="s2">&quot;Technical Program, Silver&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;Ballympics 2009&quot;</span><span class="p">:</span> <span class="s2">&quot;Best Overall, Runner-up&quot;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>List of objects, why not?</p>
-<div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jill&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;profession&quot;</span><span class="p">:</span> <span class="s2">&quot;Juggler&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">51</span><span class="p">,</span>
-  <span class="nt">&quot;active&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;tools&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ball&quot;</span><span class="p">,</span> <span class="s2">&quot;handkerchief&quot;</span><span class="p">,</span> <span class="s2">&quot;flaming motorcycle&quot;</span><span class="p">],</span>
-  <span class="nt">&quot;awards&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;Tri-City Juggling Symposium&quot;</span><span class="p">,</span>
-             <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2010</span><span class="p">,</span>
-             <span class="nt">&quot;awards&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Technical Program, Silver&quot;</span><span class="p">]</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;Ballympics&quot;</span><span class="p">,</span>
-             <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2009</span><span class="p">,</span>
-             <span class="nt">&quot;awards&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Best Overall, Runner-up&quot;</span><span class="p">]</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pipeline</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="s2">&quot;$unwind&quot;</span><span class="p">:</span> <span class="s2">&quot;$ingredients&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s2">&quot;$project&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;ingredients&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s2">&quot;$match&quot;</span><span class="p">:{</span>
+        <span class="s2">&quot;ingredients&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;$regex&quot;</span><span class="p">:</span> <span class="s2">&quot;^.+ salt&quot;</span> <span class="p">}</span>
         <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Whitespace doesn't matter:</p>
-<div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jill&quot;</span><span class="p">,</span> <span class="nt">&quot;profession&quot;</span><span class="p">:</span> <span class="s2">&quot;Juggler&quot;</span><span class="p">,</span> <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">51</span><span class="p">,</span> <span class="nt">&quot;active&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nt">&quot;tools&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ball&quot;</span><span class="p">,</span> <span class="s2">&quot;handkerchief&quot;</span><span class="p">,</span> <span class="s2">&quot;flaming motorcycle&quot;</span><span class="p">],</span> <span class="nt">&quot;awards&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;Tri-City Juggling Symposium&quot;</span><span class="p">,</span> <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2010</span><span class="p">,</span> <span class="nt">&quot;awards&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Technical Program, Silver&quot;</span><span class="p">]},</span> <span class="p">{</span><span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;Ballympics&quot;</span><span class="p">,</span> <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2009</span><span class="p">,</span> <span class="nt">&quot;awards&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Best Overall, Runner-up&quot;</span><span class="p">]}]}</span>
-</pre></div>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Exercises">Exercises<a class="anchor-link" href="#Exercises">&#182;</a></h3><p>Develop a JSON structure for representing the following:</p>
-<ul>
-<li>a directory of current mayors, organized by cities and subdivided by state<ul>
-<li>Try with 3 cities from 2 states</li>
-</ul>
-</li>
-<li>a collection of movies, each with basic metadata (e.g. title, director, year) and with viewer opinion information (ratings or reviews)<ul>
-<li>Try with <em>Black Panther</em> and <em>Avengers: Infinity War</em></li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="MongoDB">MongoDB<a class="anchor-link" href="#MongoDB">&#182;</a></h1><p>A semi-structured non-relational (No-SQL) database, which uses a JSON-like format for storing information.</p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Terminology">Terminology<a class="anchor-link" href="#Terminology">&#182;</a></h3><center>**Database Management System (MongoDB)**</center>
-<center>*can have one or more*</center><center>**Databases**</center><center>*can have one or more*</center>
-<center>**Collections**</center><center>*can have one or more*</center>
-<center>**Documents**</center>
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Compare to relational databases - How do the terms align?</p>
-
-</div>
-</div>
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><em>Documents</em> are JSON-like objects, <em>Collections</em> are lists of those objects.</p>
-
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-
-<pre><code>[
-    {
-      "name": "Jill",
-      "profession": "Juggler"
-    },
-    { "name": "Jack",
-      "profession": "Unemployed"
-    }
-]</code></pre>
-
-</div>
-</div>
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Before we learn about MongoDB, let's get it ready on our systems so we can be hands on!</p>
-<ul>
-<li>Turn to Lab and do the small JSON primer</li>
-<li>Install and connect to Mongo according to lab instructions.</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Connecting to a database called 'week7'. I'll put all my collections there this week.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pymongo</span> <span class="k">import</span> <span class="n">MongoClient</span>
-<span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">27017</span><span class="p">)</span>
-<span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">week7</span>
-<span class="n">db</span>
+    <span class="p">},</span>
+    <span class="p">{</span> <span class="s2">&quot;$limit&quot;</span><span class="p">:</span> <span class="mi">5</span> <span class="p">}</span>
+<span class="p">]</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13116,11 +12845,15 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[64]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[63]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Database(MongoClient(host=[&#39;localhost:27017&#39;], document_class=dict, tz_aware=False, connect=True), &#39;week7&#39;)</pre>
+<pre>[{&#39;ingredients&#39;: &#39;sea salt&#39;},
+ {&#39;ingredients&#39;: &#39;kosher salt&#39;},
+ {&#39;ingredients&#39;: &#39;fine sea salt&#39;},
+ {&#39;ingredients&#39;: &#39;kosher salt&#39;},
+ {&#39;ingredients&#39;: &#39;kosher salt&#39;}]</pre>
 </div>
 
 </div>
@@ -13128,50 +12861,390 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 </div>
 </div>
 
-</div></section><section>
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>New <code>example</code> collection:</p>
+<p>Count the qualified salt types:</p>
 
 </div>
 </div>
-</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[73]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">example</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pipeline</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="s2">&quot;$unwind&quot;</span><span class="p">:</span> <span class="s2">&quot;$ingredients&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s2">&quot;$project&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;ingredients&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s2">&quot;$match&quot;</span><span class="p">:{</span> <span class="s2">&quot;ingredients&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;$regex&quot;</span><span class="p">:</span> <span class="s2">&quot;^.+ salt$&quot;</span> <span class="p">}</span> <span class="p">}</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s2">&quot;$group&quot;</span><span class="p">:{</span>
+        <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;$ingredients&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;$sum&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span> <span class="p">}</span> 
+    <span class="p">},</span>
+    <span class="p">{</span> <span class="s2">&quot;$sort&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">}</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s2">&quot;$limit&quot;</span><span class="p">:</span> <span class="mi">20</span> <span class="p">}</span>
+<span class="p">]</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[73]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[{&#39;_id&#39;: &#39;kosher salt&#39;, &#39;count&#39;: 3113},
+ {&#39;_id&#39;: &#39;sea salt&#39;, &#39;count&#39;: 940},
+ {&#39;_id&#39;: &#39;coarse salt&#39;, &#39;count&#39;: 578},
+ {&#39;_id&#39;: &#39;fine sea salt&#39;, &#39;count&#39;: 285},
+ {&#39;_id&#39;: &#39;garlic salt&#39;, &#39;count&#39;: 240},
+ {&#39;_id&#39;: &#39;seasoning salt&#39;, &#39;count&#39;: 131},
+ {&#39;_id&#39;: &#39;table salt&#39;, &#39;count&#39;: 79},
+ {&#39;_id&#39;: &#39;coarse sea salt&#39;, &#39;count&#39;: 68},
+ {&#39;_id&#39;: &#39;coarse kosher salt&#39;, &#39;count&#39;: 64},
+ {&#39;_id&#39;: &#39;celery salt&#39;, &#39;count&#39;: 52},
+ {&#39;_id&#39;: &#39;fine salt&#39;, &#39;count&#39;: 24},
+ {&#39;_id&#39;: &#39;onion salt&#39;, &#39;count&#39;: 15},
+ {&#39;_id&#39;: &#39;rock salt&#39;, &#39;count&#39;: 14},
+ {&#39;_id&#39;: &#39;pickling salt&#39;, &#39;count&#39;: 12},
+ {&#39;_id&#39;: &#39;black salt&#39;, &#39;count&#39;: 12},
+ {&#39;_id&#39;: &#39;Himalayan salt&#39;, &#39;count&#39;: 11},
+ {&#39;_id&#39;: &#39;celtic salt&#39;, &#39;count&#39;: 9},
+ {&#39;_id&#39;: &#39;maldon sea salt&#39;, &#39;count&#39;: 8},
+ {&#39;_id&#39;: &#39;smoked sea salt&#39;, &#39;count&#39;: 6},
+ {&#39;_id&#39;: &#39;iodized salt&#39;, &#39;count&#39;: 4}]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Note-on-variation">Note on variation<a class="anchor-link" href="#Note-on-variation">&#182;</a></h3><ul>
+<li>Regular Expressions are <em>close</em> to standard, but different implementations are slightly different.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Basics-of-Regular-Expressions">Basics of Regular Expressions<a class="anchor-link" href="#Basics-of-Regular-Expressions">&#182;</a></h2>
+</div>
+</div>
 </div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Insert-One">Insert One<a class="anchor-link" href="#Insert-One">&#182;</a></h2>
+<p>In this class: we'll cover the basics, practiced in Python and Pandas.</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To follow along:</p>
+
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Wild-Cards">Wild Cards<a class="anchor-link" href="#Wild-Cards">&#182;</a></h2>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>a</code> - Match the letter 'a'. Same for most other characters</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[76]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Colorado&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[76]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;o&#39;, &#39;o&#39;, &#39;o&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;Buffalo buffalo&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[77]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;Buffalo buffalo&#39;, &#39;Buffalo buffalo&#39;, &#39;Buffalo buffalo&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>.</code> - Match any single character</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[81]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;who, what, where, why, and how&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;wh.&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[81]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;who&#39;, &#39;wha&#39;, &#39;whe&#39;, &#39;why&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[83]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;who, what, where, why, and how&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;wh.,&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[83]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;who,&#39;, &#39;why,&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><code>\w</code> - Match any word character (letters, number... support for non-English characters varies)</li>
+<li><code>\W</code> - Match any non-word characters</li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[84]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Who, what, where, why, and how&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\w\w\w,&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[84]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;Who,&#39;, &#39;hat,&#39;, &#39;ere,&#39;, &#39;why,&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[88]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Who, what, where, why, and how&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\w&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[88]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;W&#39;,
+ &#39;h&#39;,
+ &#39;o&#39;,
+ &#39;w&#39;,
+ &#39;h&#39;,
+ &#39;a&#39;,
+ &#39;t&#39;,
+ &#39;w&#39;,
+ &#39;h&#39;,
+ &#39;e&#39;,
+ &#39;r&#39;,
+ &#39;e&#39;,
+ &#39;w&#39;,
+ &#39;h&#39;,
+ &#39;y&#39;,
+ &#39;a&#39;,
+ &#39;n&#39;,
+ &#39;d&#39;,
+ &#39;h&#39;,
+ &#39;o&#39;,
+ &#39;w&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>\d</code> - Match any digit</p>
+
+</div>
+</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[89]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">doc</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jill&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">51</span><span class="p">,</span>
-  <span class="s2">&quot;profession&quot;</span><span class="p">:</span> <span class="s2">&quot;Juggler&quot;</span>
-<span class="p">}</span>
-<span class="n">collection</span><span class="o">.</span><span class="n">insert_one</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Party like it&#39;s 1999&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\d&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13186,7 +13259,7 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;pymongo.results.InsertOneResult at 0x111e1d1eb40&gt;</pre>
+<pre>[&#39;1&#39;, &#39;9&#39;, &#39;9&#39;, &#39;9&#39;]</pre>
 </div>
 
 </div>
@@ -13194,24 +13267,14 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 </div>
 </div>
 
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Retrieving-Documents">Retrieving Documents<a class="anchor-link" href="#Retrieving-Documents">&#182;</a></h2><p>MongoDB does retrieval with <code>find</code> or <code>find_one</code>, using a JSON-query.</p>
-<p><code>find_one</code> gives a JSON object back:</p>
-
-</div>
-</div>
-</div>
+</div></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[91]:</div>
+<div class="prompt input_prompt">In&nbsp;[90]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection</span><span class="o">.</span><span class="n">find_one</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jill&#39;</span><span class="p">})</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Party like it&#39;s 1999&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\d\d\d\d&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13222,160 +13285,11 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[91]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[90]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;_id&#39;: ObjectId(&#39;5af1c28e4b6d021e1098fa59&#39;),
- &#39;age&#39;: 51,
- &#39;name&#39;: &#39;Jill&#39;,
- &#39;profession&#39;: &#39;Juggler&#39;}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>find</code> returns an instance of an object that can be iterated over:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[92]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jill&#39;</span><span class="p">})</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[92]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;pymongo.cursor.Cursor at 0x111e1e046d8&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[179]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jill&#39;</span><span class="p">})</span>
-<span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#39;_id&#39;: ObjectId(&#39;5af1ca774b6d021e1098fa64&#39;), &#39;name&#39;: &#39;Jill&#39;, &#39;profile&#39;: {&#39;age&#39;: 51, &#39;hobbies&#39;: [&#39;jogging&#39;, &#39;juggling&#39;]}}
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><em>Try iterating over the <code>results</code> variable again without doing another search. What happens?</em></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[191]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The <code>cursor</code> is a pointer to the databases, so you're not holding all the data in memory. Good for really large datasets!</p>
-
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Alternately, you can convert everything to a list, but don't do this if you have a lot of data!</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[95]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jill&#39;</span><span class="p">})</span>
-<span class="n">list_of_results</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-<span class="n">list_of_results</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[95]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[{&#39;_id&#39;: ObjectId(&#39;5af1c28e4b6d021e1098fa59&#39;),
-  &#39;age&#39;: 51,
-  &#39;name&#39;: &#39;Jill&#39;,
-  &#39;profession&#39;: &#39;Juggler&#39;}]</pre>
+<pre>[&#39;1999&#39;]</pre>
 </div>
 
 </div>
@@ -13389,147 +13303,52 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Insert-Many">Insert Many<a class="anchor-link" href="#Insert-Many">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[96]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">docs</span> <span class="o">=</span> <span class="p">[{</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jack&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;profession&quot;</span><span class="p">:</span> <span class="s2">&quot;Unemployed&quot;</span> <span class="p">},</span>
-        <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jun Ho&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span> <span class="s2">&quot;profession&quot;</span><span class="p">:</span> <span class="s2">&quot;Juggler&quot;</span> <span class="p">}</span>
-       <span class="p">]</span>
-<span class="n">collection</span><span class="o">.</span><span class="n">insert_many</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
-</pre></div>
+<p><code>\s</code> - Match any whitespace character (space, tabs, line breaks sometimes)</p>
 
 </div>
 </div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[96]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;pymongo.results.InsertManyResult at 0x111e1d21a20&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[97]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s2">&quot;profession&quot;</span><span class="p">:</span> <span class="s2">&quot;Juggler&quot;</span><span class="p">})</span>
-<span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[97]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[{&#39;_id&#39;: ObjectId(&#39;5af1c28e4b6d021e1098fa59&#39;),
-  &#39;age&#39;: 51,
-  &#39;name&#39;: &#39;Jill&#39;,
-  &#39;profession&#39;: &#39;Juggler&#39;},
- {&#39;_id&#39;: ObjectId(&#39;5af1c2bb4b6d021e1098fa5b&#39;),
-  &#39;age&#39;: 34,
-  &#39;name&#39;: &#39;Jun Ho&#39;,
-  &#39;profession&#39;: &#39;Juggler&#39;}]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
+</div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Count">Count<a class="anchor-link" href="#Count">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[125]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-</pre></div>
+<p><em>What will this return?</em></p>
 
 </div>
 </div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[125]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>3</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Retrieving-Everything">Retrieving Everything<a class="anchor-link" href="#Retrieving-Everything">&#182;</a></h2><p><em>What would our search be to get everything?</em></p>
-
-</div>
-</div>
-</div>
+</div></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;The quick brown fox jumped over the lazy yellow dog&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\s....\s&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>[ab]</code> - Group of multiple possible characters - in this case 'a' or 'b'</p>
+
+</div>
+</div>
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[98]:</div>
+<div class="prompt input_prompt">In&nbsp;[112]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">({})</span>
-<span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;The quick brown fox jumped over the lazy yellow dog&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[Tt]he&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13540,22 +13359,11 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[98]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[112]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[{&#39;_id&#39;: ObjectId(&#39;5af1c28e4b6d021e1098fa59&#39;),
-  &#39;age&#39;: 51,
-  &#39;name&#39;: &#39;Jill&#39;,
-  &#39;profession&#39;: &#39;Juggler&#39;},
- {&#39;_id&#39;: ObjectId(&#39;5af1c2bb4b6d021e1098fa5a&#39;),
-  &#39;age&#39;: 50,
-  &#39;name&#39;: &#39;Jack&#39;,
-  &#39;profession&#39;: &#39;Unemployed&#39;},
- {&#39;_id&#39;: ObjectId(&#39;5af1c2bb4b6d021e1098fa5b&#39;),
-  &#39;age&#39;: 34,
-  &#39;name&#39;: &#39;Jun Ho&#39;,
-  &#39;profession&#39;: &#39;Juggler&#39;}]</pre>
+<pre>[&#39;The&#39;, &#39;the&#39;]</pre>
 </div>
 
 </div>
@@ -13569,261 +13377,27 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Find-by-Example"><code>Find</code> by Example<a class="anchor-link" href="#Find-by-Example">&#182;</a></h2>
+<h3 id="What-if-I-want-to-match-an-actual-backslash-or-period?"><em>What if I want to match an actual backslash or period?</em><a class="anchor-link" href="#What-if-I-want-to-match-an-actual-backslash-or-period?">&#182;</a></h3>
 </div>
 </div>
-</div></section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Exact match:</p>
+<p>This is a problem:</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[105]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">({</span>
-            <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">50</span>
-        <span class="p">})</span>
-<span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[105]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[{&#39;_id&#39;: ObjectId(&#39;5af1c2bb4b6d021e1098fa5a&#39;),
-  &#39;age&#39;: 50,
-  &#39;name&#39;: &#39;Jack&#39;,
-  &#39;profession&#39;: &#39;Unemployed&#39;}]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Multiple conditions:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[110]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">({</span>
-            <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
-            <span class="s2">&quot;profession&quot;</span><span class="p">:</span> <span class="s2">&quot;Unemployed&quot;</span>
-        <span class="p">})</span>
-<span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[110]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[{&#39;_id&#39;: ObjectId(&#39;5af1c2bb4b6d021e1098fa5a&#39;),
-  &#39;age&#39;: 50,
-  &#39;name&#39;: &#39;Jack&#39;,
-  &#39;profession&#39;: &#39;Unemployed&#39;}]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Greater than, Less than, Greater than or equal to, Less than or equal to:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[104]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">({</span>
-            <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;$gt&quot;</span><span class="p">:</span> <span class="mi">50</span> <span class="p">}</span>
-        <span class="p">})</span>
-<span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[104]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[{&#39;_id&#39;: ObjectId(&#39;5af1c28e4b6d021e1098fa59&#39;),
-  &#39;age&#39;: 51,
-  &#39;name&#39;: &#39;Jill&#39;,
-  &#39;profession&#39;: &#39;Juggler&#39;}]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[106]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">({</span>
-            <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;$gte&quot;</span><span class="p">:</span> <span class="mi">50</span> <span class="p">}</span>
-        <span class="p">})</span>
-<span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[106]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[{&#39;_id&#39;: ObjectId(&#39;5af1c28e4b6d021e1098fa59&#39;),
-  &#39;age&#39;: 51,
-  &#39;name&#39;: &#39;Jill&#39;,
-  &#39;profession&#39;: &#39;Juggler&#39;},
- {&#39;_id&#39;: ObjectId(&#39;5af1c2bb4b6d021e1098fa5a&#39;),
-  &#39;age&#39;: 50,
-  &#39;name&#39;: &#39;Jack&#39;,
-  &#39;profession&#39;: &#39;Unemployed&#39;}]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="p">{</span> <span class="nt">&quot;$gt&quot;</span><span class="p">:</span> <span class="mi">50</span> <span class="p">}</span>
-</pre></div>
-<p>The <code>$</code> tells mongo that this is a special function, not simply a value named <code>gt</code></p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[197]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">({</span>
-            <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;$gte&quot;</span><span class="p">:</span> <span class="mi">50</span> <span class="p">}</span>
-        <span class="p">})</span>
-<span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[197]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>And more:</p>
-<ul>
-<li>Combine expressions with <code>$or</code>, <code>$and</code></li>
-<li>Match against multiple values with <code>$in</code>, <code>$all</code></li>
-</ul>
-<p><em>What do these do? Can we figure out how to use them?</em></p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Specifying-the-return-fields">Specifying the return fields<a class="anchor-link" href="#Specifying-the-return-fields">&#182;</a></h3><p>The 2nd argument to <code>find</code> or <code>find_one</code> specifies which fields to include:</p>
-
-</div>
-</div>
-</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[114]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">({},</span> <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
-<span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Dr. Jones Drinks Too Much&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;Dr.&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13838,9 +13412,7 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[{&#39;_id&#39;: ObjectId(&#39;5af1c28e4b6d021e1098fa59&#39;), &#39;name&#39;: &#39;Jill&#39;},
- {&#39;_id&#39;: ObjectId(&#39;5af1c2bb4b6d021e1098fa5a&#39;), &#39;name&#39;: &#39;Jack&#39;},
- {&#39;_id&#39;: ObjectId(&#39;5af1c2bb4b6d021e1098fa5b&#39;), &#39;name&#39;: &#39;Jun Ho&#39;}]</pre>
+<pre>[&#39;Dr.&#39;, &#39;Dri&#39;]</pre>
 </div>
 
 </div>
@@ -13848,14 +13420,28 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 </div>
 </div>
 
-</div></div></section><section>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Precede the character with a backslash</p>
+<p>E.g.</p>
+<ul>
+<li><code>.</code> - Matches <em>any</em> character</li>
+<li><code>\.</code> - Matches a period</li>
+</ul>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[115]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">({},</span> <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
-<span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;Dr\.&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13870,9 +13456,7 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[{&#39;_id&#39;: ObjectId(&#39;5af1c28e4b6d021e1098fa59&#39;), &#39;age&#39;: 51, &#39;name&#39;: &#39;Jill&#39;},
- {&#39;_id&#39;: ObjectId(&#39;5af1c2bb4b6d021e1098fa5a&#39;), &#39;age&#39;: 50, &#39;name&#39;: &#39;Jack&#39;},
- {&#39;_id&#39;: ObjectId(&#39;5af1c2bb4b6d021e1098fa5b&#39;), &#39;age&#39;: 34, &#39;name&#39;: &#39;Jun Ho&#39;}]</pre>
+<pre>[&#39;Dr.&#39;]</pre>
 </div>
 
 </div>
@@ -13880,24 +13464,27 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 </div>
 </div>
 
-</div>
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Or by exclusion:</p>
+<ul>
+<li><code>[a-z]</code> matches any character from a to z</li>
+<li><code>[A-Z]</code> matches any character from A to Z</li>
+</ul>
 
 </div>
 </div>
-</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[116]:</div>
+<div class="prompt input_prompt">In&nbsp;[144]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">({},</span> <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="mi">0</span> <span class="p">})</span>
-<span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;text 1-800-SPAM for more information&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[A-Z]+&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13908,19 +13495,11 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[116]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[144]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[{&#39;_id&#39;: ObjectId(&#39;5af1c28e4b6d021e1098fa59&#39;),
-  &#39;age&#39;: 51,
-  &#39;profession&#39;: &#39;Juggler&#39;},
- {&#39;_id&#39;: ObjectId(&#39;5af1c2bb4b6d021e1098fa5a&#39;),
-  &#39;age&#39;: 50,
-  &#39;profession&#39;: &#39;Unemployed&#39;},
- {&#39;_id&#39;: ObjectId(&#39;5af1c2bb4b6d021e1098fa5b&#39;),
-  &#39;age&#39;: 34,
-  &#39;profession&#39;: &#39;Juggler&#39;}]</pre>
+<pre>[&#39;SPAM&#39;]</pre>
 </div>
 
 </div>
@@ -13928,23 +13507,55 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 </div>
 </div>
 
-</div></section></section><section><section>
+</div></div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><em>Why use Mongo rather than an SQL DB?</em></p>
+<p>Those square brackets are same as before, so you can group A-Z with other matches.</p>
+<p>e.g. Match capital letters, digits, or hyphens:</p>
 
 </div>
 </div>
-</div><div class="fragment">
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[145]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;text 1-800-SPAM for more information&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[\d\-A-Z]+&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[145]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;1-800-SPAM&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Nested-Fields-and-Arrays"><center>Nested Fields and Arrays</center><a class="anchor-link" href="#Nested-Fields-and-Arrays">&#182;</a></h1>
+<p><em>Note above that a hyphen is another special character, so matching for a literal <code>-</code> is done with <code>\-</code>.</em></p>
+
 </div>
 </div>
 </div></div></section><section>
@@ -13953,37 +13564,41 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>New collection:</p>
+<p>Returning to the earlier data.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[198]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">example2</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">titles</span> <span class="o">=</span> <span class="n">movies</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div></section><section>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>"The (single word) of ..."</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[134]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">doc</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jill&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;profile&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">51</span><span class="p">,</span>
-      <span class="s2">&quot;hobbies&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;jogging&quot;</span><span class="p">,</span> <span class="s2">&quot;juggling&quot;</span><span class="p">]</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-<span class="n">collection</span><span class="o">.</span><span class="n">insert_one</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">matches</span> <span class="o">=</span> <span class="n">titles</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;^The \w+ of &#39;</span><span class="p">)</span>
+<span class="n">titles</span><span class="p">[</span><span class="n">matches</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13994,11 +13609,21 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[134]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;pymongo.results.InsertOneResult at 0x111e1e1f798&gt;</pre>
+<pre>99139                The End of the Tour
+94735          The Plague of the Zombies
+97198                     The Best of Me
+99821               The Face of an Angel
+88980       The Earrings of Madame de...
+68702               The Legend of Tarzan
+75357    The Importance of Being Earnest
+93216            The Diary of Anne Frank
+97199                   The Book of Life
+68479                 The Age of Adaline
+Name: title, dtype: object</pre>
 </div>
 
 </div>
@@ -14006,20 +13631,151 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 </div>
 </div>
 
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">matches</span> <span class="o">=</span> <span class="n">titles</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">titles</span><span class="p">[</span><span class="n">matches</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>67847                  Captain America: The Winter Soldier
+29299    Léon: The Professional (a.k.a. The Professiona...
+96755    Will Ferrell: You&#39;re Welcome America - A Final...
+88694         Nightmare on Elm Street 3: Dream Warriors, A
+82307                   Police Academy 6: City Under Siege
+92984                             Exorcist II: The Heretic
+75368                      Tabu: A Story of the South Seas
+94572                       Sherlock: The Abominable Bride
+93522       Librarian, The: The Curse of the Judas Chalice
+76784         City Slickers II: The Legend of Curly&#39;s Gold
+Name: title, dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">matches</span> <span class="o">=</span> <span class="n">titles</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;^\w+\-\w+$&quot;</span><span class="p">)</span>
+<span class="n">titles</span><span class="p">[</span><span class="n">matches</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exercises">Exercises<a class="anchor-link" href="#Exercises">&#182;</a></h2><p>Reference:</p>
+<ul>
+<li><code>a</code> - Match the letter 'a'. Same for most other characters</li>
+<li><code>.</code> - Match any single character</li>
+<li><code>.\</code> - Match a period. Same for other 'special' characters</li>
+<li><code>\w</code> - Match any word character</li>
+<li><code>\d</code> - Match any digit</li>
+<li><code>\s</code> - Match any whitespace character</li>
+<li><code>[ab]</code> - Group of multiple possible characters</li>
+<li><code>[a-z]</code> matches any character from a to z</li>
+<li><code>[A-Z]</code> matches any character from A to Z</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Repetition">Repetition<a class="anchor-link" href="#Repetition">&#182;</a></h2>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>?</code> - One or zero of the preceding match</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[98]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;color colour&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;colou?r&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[98]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;color&#39;, &#39;colour&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><code>+</code> - One or more of the preceding match</li>
+<li><code>*</code> - Zero or more of the preceding match</li>
+</ul>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[135]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">doc</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jack&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;profile&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
-      <span class="s2">&quot;hobbies&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;internet commenting&quot;</span><span class="p">]</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-<span class="n">collection</span><span class="o">.</span><span class="n">insert_one</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;GOAL GOOOOOOOOOAAAAAAL&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;GO+A+L&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14034,7 +13790,7 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;pymongo.results.InsertOneResult at 0x111e1d3f2d0&gt;</pre>
+<pre>[&#39;GOAL&#39;, &#39;GOOOOOOOOOAAAAAAL&#39;]</pre>
 </div>
 
 </div>
@@ -14042,20 +13798,14 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 </div>
 </div>
 
-</div></section><section>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[136]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">doc</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ju Ho&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;profile&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span>
-      <span class="s2">&quot;hobbies&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;petting dogs&quot;</span><span class="p">,</span> <span class="s2">&quot;juggling&quot;</span><span class="p">]</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-<span class="n">collection</span><span class="o">.</span><span class="n">insert_one</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;GOAL&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;GO+A+L&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14070,36 +13820,7 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;pymongo.results.InsertOneResult at 0x111e1e1f2d0&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[199]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[199]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>3</pre>
+<pre>[&#39;GOAL&#39;]</pre>
 </div>
 
 </div>
@@ -14113,18 +13834,18 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>'dot' notation: separate nested field with a field. e.g. <code>profile.age</code></p>
+<p><code>*</code> and <code>+</code> are <em>greedy</em> in Python. They will grab as much as possible.</p>
 
 </div>
 </div>
-</div><div class="fragment">
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[147]:</div>
+<div class="prompt input_prompt">In&nbsp;[124]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;profile.age&quot;</span><span class="p">:</span> <span class="mi">51</span><span class="p">}</span> <span class="p">)</span>
-<span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;foo1@gmail.com;b-a-r@gmail.com;baz@gmail.com&quot;</span> 
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\w.*@gmail.com&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14135,13 +13856,112 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[147]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[124]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[{&#39;_id&#39;: ObjectId(&#39;5af1ca774b6d021e1098fa64&#39;),
-  &#39;name&#39;: &#39;Jill&#39;,
-  &#39;profile&#39;: {&#39;age&#39;: 51, &#39;hobbies&#39;: [&#39;jogging&#39;, &#39;juggling&#39;]}}]</pre>
+<pre>[&#39;foo1@gmail.com;b-a-r@gmail.com;baz@gmail.com&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>*?</code> is the <em>lazy</em> alternative, it will grab as little as possible.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#re.findall(   ...   , text)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[123]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\w.*?@gmail.com&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[123]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;foo1@gmail.com&#39;, &#39;b-a-r@gmail.com&#39;, &#39;baz@gmail.com&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Start-and-End-of-Line">Start and End of Line<a class="anchor-link" href="#Start-and-End-of-Line">&#182;</a></h2>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>^</code> - Start of line</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[100]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;The quick brown fox jumped over the lazy yellow dog&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;^quick&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[100]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[]</pre>
 </div>
 
 </div>
@@ -14152,11 +13972,10 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 </div></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[146]:</div>
+<div class="prompt input_prompt">In&nbsp;[105]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;profile.hobbies&quot;</span><span class="p">:</span> <span class="s2">&quot;juggling&quot;</span><span class="p">}</span> <span class="p">)</span>
-<span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;^The&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14167,16 +13986,341 @@ Name: (Comedy, City Lights), dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[146]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[105]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[{&#39;_id&#39;: ObjectId(&#39;5af1ca774b6d021e1098fa64&#39;),
-  &#39;name&#39;: &#39;Jill&#39;,
-  &#39;profile&#39;: {&#39;age&#39;: 51, &#39;hobbies&#39;: [&#39;jogging&#39;, &#39;juggling&#39;]}},
- {&#39;_id&#39;: ObjectId(&#39;5af1ca794b6d021e1098fa66&#39;),
-  &#39;name&#39;: &#39;Ju Ho&#39;,
-  &#39;profile&#39;: {&#39;age&#39;: 34, &#39;hobbies&#39;: [&#39;petting dogs&#39;, &#39;juggling&#39;]}}]</pre>
+<pre>[&#39;The&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[109]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;^.*fox&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[109]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;The quick brown fox&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>$</code> - End of line</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[104]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;The quick brown fox jumped over the lazy yellow dog&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;.......$&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[104]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;low dog&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[110]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;The quick brown fox jumped over the lazy yellow dog&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;^.*$&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[110]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;The quick brown fox jumped over the lazy yellow dog&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Exercises">Exercises<a class="anchor-link" href="#Exercises">&#182;</a></h1><h2 id="Reference">Reference<a class="anchor-link" href="#Reference">&#182;</a></h2><ul>
+<li><code>a</code> - Match the letter 'a'. Same for most other characters</li>
+<li><code>.</code> - Match any single character</li>
+<li><code>.\</code> - Match a period. Same for other 'special' characters</li>
+<li><code>\w</code> - Match any word character</li>
+<li><code>\d</code> - Match any digit</li>
+<li><code>\s</code> - Match any whitespace character</li>
+<li><code>[ab]</code> - Group of multiple possible characters</li>
+<li><code>[a-z]</code> matches any character from a to z</li>
+<li><code>[A-Z]</code> matches any character from A to Z</li>
+<li><code>?</code> - One or zero of the preceding match</li>
+<li><code>+</code> - One or more of the preceding match</li>
+<li><code>*</code> - Zero or more of the preceding match</li>
+<li><code>^</code> - Start of line</li>
+<li><code>$</code> - End of line</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Additional-tips">Additional tips<a class="anchor-link" href="#Additional-tips">&#182;</a></h1><p>Choose a range for repetition with <code>{min,max}</code>. e.g.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;YOLO&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;YOLO{1,3}$&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[49]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;_sre.SRE_Match object; span=(0, 4), match=&#39;YOLO&#39;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;YOLOOO&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;YOLO{1,3}$&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[50]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;_sre.SRE_Match object; span=(0, 6), match=&#39;YOLOOO&#39;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;YOLOOOOOO&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;YOLO{1,3}$&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Negation</em></p>
+<p>Use the caret in square brackets: <code>[^aeiou]</code> means <em>not</em> a, e, t, o, or u</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Groups</em></p>
+<p>Use parentheses. e.g:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;banana&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;^ba(na)+$&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[53]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;_sre.SRE_Match object; span=(0, 6), match=&#39;banana&#39;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;lololololololololololol&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;^l(ol)+$&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[54]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;_sre.SRE_Match object; span=(0, 23), match=&#39;lololololololololololol&#39;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Capturing groups:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Ketchup Catsup&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;(Ketch|Cats)up&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[61]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;Ketch&#39;, &#39;Cats&#39;]</pre>
 </div>
 
 </div>
