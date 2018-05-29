@@ -16,7 +16,7 @@ _[Link to Slides](http://www.porganized.com/Scripting-Course/slides/09-regular-e
    - Using SQLite in Jupyter with `%sql`
 
 - Data manipulation with Pandas
-   - DataFrames ans Series's
+   - DataFrames and Series's
    - Import/Exporting to SQL
    - Pulling tables from web
    - Selection, sorting, counting
@@ -34,12 +34,9 @@ _[Link to Slides](http://www.porganized.com/Scripting-Course/slides/09-regular-e
 
 - String pattern matching and extraction with regular expressions
 
-
-```python
 - Next week
     - Advanced Pandas (rolling, dates)
     - Web scraping
-```
 
 ## Final Project Updates
 
@@ -60,7 +57,7 @@ e.g. Match "{Lastname}, {Firstname}" in a set of records and rewrite it as "{Fir
 
 ## Why?
 
-- Checking whether an input is valid (i.e. password, phone nuber, email, etc.)
+- Checking whether an input is valid (i.e. password, phone number, email, etc.)
 - Cleaning data
 - More complex data subsetting
 - Working with user inputs or other unstructured data
@@ -218,94 +215,94 @@ movies[matches].sample(10)
   </thead>
   <tbody>
     <tr>
-      <th>12675</th>
-      <td>240</td>
-      <td>4.5</td>
-      <td>Spider-Man 2</td>
-      <td>Action</td>
-      <td>1098940773</td>
-      <td>2004</td>
-    </tr>
-    <tr>
-      <th>12681</th>
-      <td>272</td>
-      <td>3.5</td>
-      <td>Spider-Man 2</td>
-      <td>Action</td>
-      <td>1453587659</td>
-      <td>2004</td>
-    </tr>
-    <tr>
-      <th>65682</th>
-      <td>270</td>
-      <td>5.0</td>
-      <td>District 9</td>
-      <td>Mystery</td>
-      <td>1469306052</td>
-      <td>2009</td>
-    </tr>
-    <tr>
-      <th>2042</th>
-      <td>34</td>
+      <th>73693</th>
+      <td>654</td>
       <td>4.0</td>
+      <td>Predator 2</td>
+      <td>Action</td>
+      <td>1145393723</td>
+      <td>1990</td>
+    </tr>
+    <tr>
+      <th>97753</th>
+      <td>452</td>
+      <td>1.0</td>
+      <td>Smokey and the Bandit III</td>
+      <td>Action</td>
+      <td>1016590031</td>
+      <td>1983</td>
+    </tr>
+    <tr>
+      <th>47841</th>
+      <td>339</td>
+      <td>3.5</td>
+      <td>Die Hard 2</td>
+      <td>Action</td>
+      <td>1446663933</td>
+      <td>1990</td>
+    </tr>
+    <tr>
+      <th>77626</th>
+      <td>467</td>
+      <td>3.0</td>
+      <td>54</td>
+      <td>Drama</td>
+      <td>939063634</td>
+      <td>1998</td>
+    </tr>
+    <tr>
+      <th>91148</th>
+      <td>468</td>
+      <td>2.5</td>
+      <td>$9.99</td>
+      <td>Animation</td>
+      <td>1296189776</td>
+      <td>2008</td>
+    </tr>
+    <tr>
+      <th>41665</th>
+      <td>165</td>
+      <td>0.5</td>
+      <td>Mission: Impossible II</td>
+      <td>Action</td>
+      <td>1111479113</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>2108</th>
+      <td>282</td>
+      <td>4.5</td>
       <td>Apollo 13</td>
       <td>Adventure</td>
-      <td>973746527</td>
+      <td>1111493750</td>
       <td>1995</td>
     </tr>
     <tr>
-      <th>47856</th>
-      <td>518</td>
-      <td>3.0</td>
-      <td>Die Hard 2</td>
-      <td>Action</td>
-      <td>945367986</td>
-      <td>1990</td>
-    </tr>
-    <tr>
-      <th>67444</th>
-      <td>213</td>
-      <td>3.0</td>
-      <td>Iron Man 3</td>
-      <td>Action</td>
-      <td>1462634213</td>
-      <td>2013</td>
-    </tr>
-    <tr>
-      <th>87298</th>
-      <td>133</td>
-      <td>2.5</td>
-      <td>50/50</td>
-      <td>Comedy</td>
-      <td>1416148204</td>
-      <td>2011</td>
-    </tr>
-    <tr>
-      <th>12707</th>
+      <th>41352</th>
       <td>481</td>
-      <td>2.5</td>
-      <td>Spider-Man 2</td>
-      <td>Action</td>
-      <td>1437006309</td>
-      <td>2004</td>
-    </tr>
-    <tr>
-      <th>47844</th>
-      <td>388</td>
-      <td>4.0</td>
-      <td>Die Hard 2</td>
-      <td>Action</td>
-      <td>946520884</td>
-      <td>1990</td>
-    </tr>
-    <tr>
-      <th>47858</th>
-      <td>534</td>
       <td>3.0</td>
-      <td>Die Hard 2</td>
+      <td>Harry Potter and the Deathly Hallows: Part 1</td>
       <td>Action</td>
-      <td>973375852</td>
-      <td>1990</td>
+      <td>1437003549</td>
+      <td>2010</td>
+    </tr>
+    <tr>
+      <th>20206</th>
+      <td>550</td>
+      <td>2.0</td>
+      <td>Lethal Weapon 4</td>
+      <td>Action</td>
+      <td>943373045</td>
+      <td>1998</td>
+    </tr>
+    <tr>
+      <th>84657</th>
+      <td>457</td>
+      <td>2.5</td>
+      <td>Friday the 13th Part 2</td>
+      <td>Horror</td>
+      <td>1471385314</td>
+      <td>1981</td>
     </tr>
   </tbody>
 </table>
@@ -486,31 +483,22 @@ movies[matches].sample(10)
   </thead>
   <tbody>
     <tr>
-      <th>68280</th>
-      <td>553</td>
-      <td>5.0</td>
-      <td>The Hobbit: The Battle of the Five Armies</td>
-      <td>Adventure</td>
-      <td>1423011457</td>
-      <td>2014</td>
-    </tr>
-    <tr>
-      <th>93219</th>
-      <td>452</td>
-      <td>3.0</td>
-      <td>The Diary of Anne Frank</td>
-      <td>Drama</td>
-      <td>1112045092</td>
-      <td>1959</td>
-    </tr>
-    <tr>
-      <th>75358</th>
-      <td>404</td>
-      <td>4.0</td>
-      <td>The Importance of Being Earnest</td>
+      <th>95699</th>
+      <td>299</td>
+      <td>4.5</td>
+      <td>The Lair of the White Worm</td>
       <td>Comedy</td>
-      <td>1026929076</td>
-      <td>1952</td>
+      <td>1344178630</td>
+      <td>1988</td>
+    </tr>
+    <tr>
+      <th>36099</th>
+      <td>212</td>
+      <td>4.0</td>
+      <td>The Count of Monte Cristo</td>
+      <td>Action</td>
+      <td>1228789284</td>
+      <td>2002</td>
     </tr>
     <tr>
       <th>68258</th>
@@ -519,6 +507,33 @@ movies[matches].sample(10)
       <td>The Theory of Everything</td>
       <td>Drama</td>
       <td>1449334366</td>
+      <td>2014</td>
+    </tr>
+    <tr>
+      <th>36111</th>
+      <td>580</td>
+      <td>2.5</td>
+      <td>The Count of Monte Cristo</td>
+      <td>Action</td>
+      <td>1167160889</td>
+      <td>2002</td>
+    </tr>
+    <tr>
+      <th>36105</th>
+      <td>386</td>
+      <td>3.0</td>
+      <td>The Count of Monte Cristo</td>
+      <td>Action</td>
+      <td>1047028511</td>
+      <td>2002</td>
+    </tr>
+    <tr>
+      <th>68254</th>
+      <td>333</td>
+      <td>4.0</td>
+      <td>The Theory of Everything</td>
+      <td>Drama</td>
+      <td>1441197950</td>
       <td>2014</td>
     </tr>
     <tr>
@@ -531,49 +546,31 @@ movies[matches].sample(10)
       <td>2002</td>
     </tr>
     <tr>
-      <th>96814</th>
-      <td>380</td>
-      <td>5.0</td>
-      <td>The Jinx: The Life and Deaths of Robert Durst</td>
-      <td>Documentary</td>
-      <td>1465156469</td>
-      <td>2015</td>
-    </tr>
-    <tr>
-      <th>68247</th>
-      <td>15</td>
-      <td>1.0</td>
-      <td>The Theory of Everything</td>
-      <td>Drama</td>
-      <td>1425875426</td>
-      <td>2014</td>
-    </tr>
-    <tr>
-      <th>36102</th>
-      <td>294</td>
-      <td>4.0</td>
-      <td>The Count of Monte Cristo</td>
-      <td>Action</td>
-      <td>1112390008</td>
-      <td>2002</td>
-    </tr>
-    <tr>
-      <th>68274</th>
-      <td>205</td>
-      <td>4.0</td>
-      <td>The Hobbit: The Battle of the Five Armies</td>
-      <td>Adventure</td>
-      <td>1442137371</td>
-      <td>2014</td>
-    </tr>
-    <tr>
-      <th>96669</th>
+      <th>68256</th>
       <td>378</td>
       <td>3.5</td>
-      <td>The Disappearance of Eleanor Rigby: Her</td>
+      <td>The Theory of Everything</td>
       <td>Drama</td>
-      <td>1443293021</td>
-      <td>2013</td>
+      <td>1443292443</td>
+      <td>2014</td>
+    </tr>
+    <tr>
+      <th>68249</th>
+      <td>73</td>
+      <td>4.0</td>
+      <td>The Theory of Everything</td>
+      <td>Drama</td>
+      <td>1457597352</td>
+      <td>2014</td>
+    </tr>
+    <tr>
+      <th>36104</th>
+      <td>382</td>
+      <td>2.5</td>
+      <td>The Count of Monte Cristo</td>
+      <td>Action</td>
+      <td>1371825566</td>
+      <td>2002</td>
     </tr>
   </tbody>
 </table>
@@ -705,7 +702,6 @@ To follow along:
 
 ```python
 import re
-import pandas as pd
 ```
 
 ## Wild Cards
@@ -721,7 +717,7 @@ re.findall('o', text)
 
 
 
-    ['o', 'o', 'o']
+    ['Colorado']
 
 
 
@@ -749,7 +745,7 @@ re.findall('wh.', text)
 
 
 
-    ['who', 'wha', 'whe', 'why']
+    ['what']
 
 
 
@@ -778,7 +774,7 @@ re.findall('\w\w\w,', text)
 
 
 
-    ['Who,', 'hat,', 'ere,', 'why,']
+    ['Wh0,', 'hat,', 'ere,', 'why,']
 
 
 
@@ -852,6 +848,13 @@ re.findall('\d\d\d\d', text)
 text = "The quick brown fox jumped over the lazy yellow dog"
 re.findall('\s....\s', text)
 ```
+
+
+
+
+    [' over ', ' lazy ']
+
+
 
 `[ab]` - Group of multiple possible characters - in this case 'a' or 'b'
 
@@ -1000,13 +1003,46 @@ matches = titles.str.contains("^\w+\-\w+$")
 titles[matches]
 ```
 
+
+
+
+    259                  Ben-Hur
+    12000             Spider-Man
+    40269                  X-Men
+    55032                  U-571
+    58796             Scooby-Doo
+    61252              Fail-Safe
+    65729                G-Force
+    66092               Kick-Ass
+    68396                Ant-Man
+    69332            Re-Animator
+    69765    Slaughterhouse-Five
+    81831                  K-PAX
+    83228                 BURN-E
+    83394               Non-Stop
+    83908               Bio-Dome
+    89557            Topsy-Turvy
+    93256               Cry-Baby
+    94106              She-Devil
+    95079               Kon-Tiki
+    96155              De-Lovely
+    96602               Catch-22
+    96617                Ben-hur
+    96717               Semi-Pro
+    98638                  T-Men
+    99056     Shakespeare-Wallah
+    99971        Straight-Jacket
+    Name: title, dtype: object
+
+
+
 ## Exercises
 
 Reference: 
     
 - `a` - Match the letter 'a'. Same for most other characters
 - `.` - Match any single character
-- `.\` - Match a period. Same for other 'special' characters
+- `\.` - Match a period. Same for other 'special' characters
 - `\w` - Match any word character
 - `\d` - Match any digit
 - `\s` - Match any whitespace character
@@ -1021,13 +1057,13 @@ Reference:
 
 ```python
 text = "color colour"
-re.findall('colou?r', text)
+re.findall('colour', text)
 ```
 
 
 
 
-    ['color', 'colour']
+    ['colour']
 
 
 
@@ -1064,6 +1100,19 @@ re.findall('GO+A+L', text)
 
 
 ```python
+text = "<p>Something or other</p><p>Yet more junk.</p>" 
+re.findall('<p>.*</p>', text)
+```
+
+
+
+
+    ['<p>Something or other</p><p>Yet more junk.</p>']
+
+
+
+
+```python
 text = "foo1@gmail.com;b-a-r@gmail.com;baz@gmail.com" 
 re.findall('\w.*@gmail.com', text)
 ```
@@ -1079,8 +1128,15 @@ re.findall('\w.*@gmail.com', text)
 
 
 ```python
-#re.findall(   ...   , text)
+
 ```
+
+
+
+
+    ['foo1@gmail.com', 'b-a-r@gmail.com', 'baz@gmail.com']
+
+
 
 
 ```python
@@ -1153,7 +1209,7 @@ re.findall('.......$', text)
 
 ```python
 text = "The quick brown fox jumped over the lazy yellow dog"
-re.findall('^.*$', text)
+re.findall("^.*$", text)
 ```
 
 
@@ -1163,13 +1219,11 @@ re.findall('^.*$', text)
 
 
 
-# Exercises
-
 ## Reference
 
 - `a` - Match the letter 'a'. Same for most other characters
 - `.` - Match any single character
-- `.\` - Match a period. Same for other 'special' characters
+- `\.` - Match a period. Same for other 'special' characters
 - `\w` - Match any word character
 - `\d` - Match any digit
 - `\s` - Match any whitespace character
@@ -1177,8 +1231,10 @@ re.findall('^.*$', text)
 - `[a-z]` matches any character from a to z
 - `[A-Z]` matches any character from A to Z
 - `?` - One or zero of the preceding match
-- `+` - One or more of the preceding match
-- `*` - Zero or more of the preceding match
+- `+` - One or more of the preceding match (greedy)
+- `*` - Zero or more of the preceding match (greedy)
+- `+?` - One or more of the preceding match (lazy)
+- `*?` - Zero or more of the preceding match (lazy)
 - `^` - Start of line
 - `$` - End of line
 
@@ -1189,7 +1245,7 @@ Choose a range for repetition with `{min,max}`. e.g.
 
 ```python
 text = "YOLO"
-re.search('YOLO{1,3}$', text)
+re.search('YOLO{1,3}$', text) 
 ```
 
 
