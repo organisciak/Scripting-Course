@@ -11,7 +11,6 @@
   * [labs/02-database-intropython-lab.md](labs/02-database-intropython-lab.md)
 * Week 3
   * [slides/03-sql-pandas.md](slides/03-sql-pandas.md)
-  * [labs/03-joins-like-methods-lab.ipynb](labs/03-joins-like-methods-lab.ipynb)
 * Week 4
   * [slides/04-pandas.md](slides/04-pandas.md)
 * Week 5
