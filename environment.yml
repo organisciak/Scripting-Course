@@ -1,5 +1,9 @@
-matplotlib
-pandas
-seaborn
-pymongo
-
+name: scripting-class
+channels:
+  - conda-forge
+dependencies:
+  - numpy
+  - matplotlib
+  - pymongo
+  - pandas
+  - seaborn
