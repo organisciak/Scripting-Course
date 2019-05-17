@@ -1,5 +1,6 @@
 name: scripting-class
 channels:
+  - damianvila82
   - conda-forge
 dependencies:
   - ipython-sql
@@ -8,3 +9,5 @@ dependencies:
   - pymongo
   - pandas
   - seaborn
+  - rise
+  - mongodb
