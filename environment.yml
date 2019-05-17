@@ -2,6 +2,7 @@ name: scripting-class
 channels:
   - conda-forge
 dependencies:
+  - ipython-sql
   - numpy
   - matplotlib
   - pymongo
