@@ -1,6 +1,6 @@
 name: scripting-class
 channels:
-  - damianvila82
+  - damianavila82
   - conda-forge
 dependencies:
   - ipython-sql
