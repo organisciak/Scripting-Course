@@ -43,16 +43,16 @@ Upon satisfactory completion of the course, students will be able to:
 
 ## Schedule Overview
 
-- Week 1    Mar 29  Relational Databases, Data types, Introduction to the SciPy Stack
-- Week 2    Apr 5    Relational Databases continued, Data collection, Jupyter and Python
-- Week 3    Apr 12   SQLite, Basic Querying, Introduction to Pandas
-- Week 4    Apr 19   Split-Apply-Combine, Deletions and Updates, Indexing
-- Week 5    Apr 26   Summation, aggregation, and transformation
-- Week 6    May 3    Visualization
-- Week 7    May 10   MongoDB - Ingesting Data, document aggregations
-- Week 8    May 17   Document aggregations continued; Map-Reduce
-- Week 9    May 24   Regular Expressions
-- Week 10   May 31   Advanced techniques, review
+- Week 1    Relational Databases, Data types, Introduction to the SciPy Stack
+- Week 2    Relational Databases continued, Data collection, Jupyter and Python
+- Week 3    SQLite, Basic Querying, Introduction to Pandas
+- Week 4    Split-Apply-Combine, Deletions and Updates, Indexing
+- Week 5    Summation, aggregation, and transformation
+- Week 6    Visualization
+- Week 7    MongoDB - Ingesting Data, document aggregations
+- Week 8    Document aggregations continued; Map-Reduce
+- Week 9    Regular Expressions
+- Week 10   Advanced techniques, review
 
 ## Grading Overview
 
