@@ -58,21 +58,21 @@ Upon satisfactory completion of the course, students will be able to:
 
 ### Assignments
 
-#### Labs – 625 pts
-- 7 weekly labs – 4x100pts, 3x75pts
+#### Labs – 600 pts
+- 5 weekly labs and two mini-labs (+1 ungraded lab)
 
 The labs are small exercises of specific skills and knowledge.
 
 #### Analysis Project – 260 pts
 
 Perform a data analysis on a dataset of interest. This assignment has
-three parts: a problem statement (week 5, 30pts) and a data collection
-progress report (week 8, 30pts), both shared on Canvas with colleagues
+three parts: a problem statement (week 5, 40pts) an oral data collection
+progress report (week 8, 20pts), both shared on Canvas with colleagues
 for comment, and a final report (week 10, 200pts). In another college,
 there'd be an exam for this course. However, in our LIS context, it’s
 important to apply your skills with an engaging, creative problem.
 
-#### Participation - 115pts
+#### Participation - 140 pts
 
 Your participation grade is based on engagement (online and in class), as well as attendance. Remember that poor attendance may indirectly
 affect your grade on the assignment and labs: missing class will make
@@ -234,7 +234,7 @@ from
 
 *Activities*
 
--   Lab \#1
+-   Lab: Relational Databases
 
 ### Week 3
 
@@ -251,7 +251,7 @@ SQL continued, SQL Lite, Joins, Basic Querying, Introduction to Pandas
 
 *Activities*
 
--   Lab \#2
+-   Lab: Joins and Methods
 
 ### Week 4
 
@@ -272,7 +272,7 @@ Data Mining and Knowledge Discovery, 1(1), 29–53.
 
 *Activities*
 
--   Lab \#3
+-   Lab: Pandas
 
 -   Due Next Week: Problem Statement
 
@@ -290,7 +290,7 @@ Between. In Python Data Science Handbook. Retrieved from
 
 *Activities*
 
--   Lab \#4
+-   Lab: Split-Apply-Combine
 
 ### Week 6
 
@@ -314,9 +314,55 @@ Retrieved from <https://jakevdp.github.io/PythonDataScienceHandbook/>
 
 *Activities*
 
--   Lab \#5
+-   Mini-lab: Visualization, Review
 
 ### Week 7
+
+*Topics*
+
+Advanced techniques, review
+
+*Readings*
+
+None!
+
+*Activities*
+
+- You have a breather! Use the time to work on your final project.
+
+
+- Due next week: Data Collection Progress Report
+
+### Week 8
+
+*Topics*
+
+Regular Expressions, MongoDB wrap-up
+
+*Readings and Resources*
+
+Daniel Jurafsky, & James H. Martin. (2016). Speech and Language
+Processing (3rd ed.). Retrieved from
+<https://web.stanford.edu/~jurafsky/slp3/>.
+
+- Read Chapter 2.1, Regular Expressions
+
+Knox, D. (2013). Understanding Regular Expressions. Programming
+Historian. Retrieved from
+<https://programminghistorian.org/lessons/understanding-regular-expressions>
+
+Rubular -<http://rubular.com/>
+
+*Activities*
+
+- Lab: Regular Expressions
+
+*Activities*
+
+- Was there a colleague that was especially helpful or generous in
+  helping you learn? Email Dr. O to let him know.
+
+### Week 9
 
 *Topics*
 
@@ -331,11 +377,10 @@ Karl Seguin. (2011). *The Little MongoDB Book* (2.6).
 
 *Activities*
 
--   Lab \#6
+-   Mini-lab: MongoDB
 
--   Due next week: Data Collection Progress Report
 
-### Week 8
+### Week 10
 
 *Topics*
 
@@ -356,42 +401,11 @@ Kaushik Sathupadi. (2010). Map Reduce - A really simple introduction.
 Blog Post. Retrieved from
 <http://ksat.me/map-reduce-a-really-simple-introduction-kloudo/>.
 
-### Week 9
-
-*Topics*
-
-Regular Expressions, MongoDB wrap-up
-
-*Readings and Resources*
-
-Daniel Jurafsky, & James H. Martin. (2016). Speech and Language
-Processing (3rd ed.). Retrieved from
-<https://web.stanford.edu/~jurafsky/slp3/>.
-
--   Read Chapter 2.1, Regular Expressions
-
-Knox, D. (2013). Understanding Regular Expressions. Programming
-Historian. Retrieved from
-<https://programminghistorian.org/lessons/understanding-regular-expressions>
-
-Rubular -<http://rubular.com/>
-
 *Activities*
 
--   Lab \#7
+- There's an ungraded lab to practice aggregations - let's work on it together!
+- Due Next Week: Analysis Paper
 
--   Due Next Week: Analysis Paper
-
-### Week 10
-
-*Topics*
-
-Advanced techniques, review
-
-*Activities*
-
--   Was there a colleague that was especially helpful or generous in
-    helping you learn? Email Dr. O to let him know.
 
 
 ## Policy Details
