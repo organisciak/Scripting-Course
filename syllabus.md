@@ -1,6 +1,6 @@
 # LIS 4235 - Scripting for Large Databases (4 Credit Hours)
 
-Spring 2020
+Spring 2021
 
 **Instructor:** Peter Organisciak, Assistant Professor
 
@@ -328,7 +328,7 @@ None!
 
 *Activities*
 
-- You have a breather! Use the time to work on your final project.
+- Mini-lab: Advanced Skills
 
 
 - Due next week: Data Collection Progress Report
@@ -377,7 +377,7 @@ Karl Seguin. (2011). *The Little MongoDB Book* (2.6).
 
 *Activities*
 
--   Mini-lab: MongoDB
+-   You have a breather! Use the time to work on your final project.
 
 
 ### Week 10
