@@ -242,7 +242,7 @@ Librarianship and Information Science.
 
 Hock-Chuan, Chua. (2014). MySQL by Examples for Beginners. Retrieved
 from
-<https://www.ntu.edu.sg/home/ehchua/programming/sql/MySQL_Beginner.html>.
+<https://www3.ntu.edu.sg/home/ehchua/programming/sql/MySQL_Beginner.html>.
 
 *Activities*
 
