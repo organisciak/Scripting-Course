@@ -1,6 +1,6 @@
 # LIS 4235 - Scripting for Large Databases (4 Credit Hours)
 
-Winter 2022
+Spring 2023
 
 **Instructor:** Peter Organisciak, Assistant Professor
 
