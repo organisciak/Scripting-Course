@@ -51,8 +51,8 @@ Upon satisfactory completion of the course, students will be able to:
 - Week 6    Visualization
 - Week 7    Advanced techniques, review
 - Week 8    Regular Expressions
-- Week 9    MongoDB - Ingesting Data, document aggregations
-- Week 10   Document aggregations continued; Map-Reduce
+- Week 9    Pushing Your Skills Beyond 
+- Week 10   NoSQL with MongoDB; Document aggregations; Map-Reduce
 
 ## Grading Overview
 
@@ -184,18 +184,6 @@ class participation are essential. You will be graded on your
 contribution to class discussions and activities. The class Canvas is
 for your use and convenience. It will be used to post information,
 discuss issues, and aid group communication.
-
-### COVID-19 Protocols 
-
-University of Denver continues to use an alert level system from clear (low risk, high vaccination) to purple (severe risk). See here for details. At certain levels, mask requirements vary depending on your vaccination status.
-
-To assist in COVID mitigation, students are not permitted to eat during classes, except where a student has an approved accommodation through the Disability Support Program (DSP). Please plan accordingly.
-
-This course has been designed to transition to entirely online, should the need arise due to tightening local, state, or federal guidelines or campus closure. To that end, Canvas will be utilized to support this course. It is recommended that you familiarize yourself with the Canvas container for this course as soon as the term begins.
-
-To assist in contact tracing efforts, DU faculty have been asked to keep track of close contacts in classrooms of 20 or more students. While our class is below that threshold, we will still voluntary collect seating information during class; please try to remain by the same students as you started class near. 
-
-If you are self-quarantining/isolating, please contact Dr. Organisciak to discuss contingency plans. 
 
 ## Texts
 
