@@ -1,6 +1,6 @@
 ## Strategies for Using Chat Models
 
-### 1. Describe your question well
+## 1. Describe your question well
 
 The more the chat model knows, the better it can understand your problem. Describe your use case, errors, data, intention. If there's an error message, include it. Remember that the model doesn't know you're working in Python and with Pandas, so also note your tools!
 
