@@ -1,0 +1,20 @@
+[project]
+name = "scripting-course"
+version = "0.1.0"
+description = "Intro to Data Analysis with Python Class"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "faker>=37.1.0",
+    "ipython-sql>=0.5.0",
+    "jupyter>=1.1.1",
+    "jupyterlab-rise>=0.43.1",
+    "pandas>=2.2.3",
+    "prettytable<3.12",
+    "seaborn>=0.13.2",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29.5",
+]

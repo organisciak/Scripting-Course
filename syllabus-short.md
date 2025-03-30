@@ -52,7 +52,7 @@ Upon satisfactory completion of the course, students will be able to:
 - Week 6    Visualization
 - Week 7    Advanced techniques, review
 - Week 8    Regular Expressions
-- Week 9    Using AI in your coding workflow
+- Week 9    Pushing Your Skills Beyond 
 - Week 10   NoSQL with MongoDB; Document aggregations; Map-Reduce
 
 ## Grading Overview
@@ -366,13 +366,14 @@ Rubular -<http://rubular.com/>
 
 *Topics*
 
-Using AI in your coding workflow
-- Week 10   NoSQL with MongoDB; Document aggregations; Map-Reduce
 MongoDB - Ingesting Data, document aggregations
 
 *Readings and Resources*
 
-/
+Karl Seguin. (2011). *The Little MongoDB Book* (2.6).
+<http://openmymind.net/mongodb.pdf>
+
+-   Read Introduction, Getting Started, and Ch. 1, The Basics
 
 *Activities*
 
@@ -383,16 +384,11 @@ MongoDB - Ingesting Data, document aggregations
 
 *Topics*
 
-NoSQL with MongoDB; Document aggregations; Map-Reduce; Map-Reduce
+Document aggregations continued; Map-Reduce
 
 *Readings and Resources*
 
-Karl Seguin. (2011). *The Little MongoDB Book* (2.6).
-<http://openmymind.net/mongodb.pdf>
-
--   Read Introduction, Getting Started, and Ch. 1, The Basics
-
-Aggregation Pipeline. (2018).
+Aggregation Pipeline. (2018). Retrieved March 25, 2018, from
 <https://docs.mongodb.com/manual/core/aggregation-pipeline>
 
 Dean, J., & Ghemawat, S. (2008). MapReduce: Simplified Data Processing
@@ -409,103 +405,3 @@ Blog Post. Retrieved from
 
 - There's an ungraded lab to practice aggregations - let's work on it together!
 - Due Next Week: Analysis Paper
-
-
-
-## Policy Details
-
-### Students with Disabilities/Medical Issues
-
-If you qualify for academic accommodations because of a disability or
-medical issue please submit a Faculty Letter to me from Disability
-Services Program (DSP) in a timely manner so that your needs may be
-addressed. DSP is located on the 4th floor of Ruffatto Hall; 1999 E.
-Evans Ave.303.871. / 2372 / 2278/ 7432. Information is also available on
-line
-at [http://www.du.edu/disability/dsp.](http://www.du.edu/disability/dsp)
-
-### Religious Accommodations Policy
-
-University policy grants students excused absences from class or other
-organized activities or observance of religious holy days, unless the
-accommodation would create an undue hardship.  Faculty are asked to be
-responsive to requests when students contact them IN ADVANCE to request
-such an excused absence. Students are responsible for completing
-assignments given during their absence but should be given an
-opportunity to make up work missed because of religious observance.
-
-Once a student has registered for a class, the student is expected to
-examine the course syllabus for potential conflicts with holy days and
-to notify the instructor by the end of the first week of classes of any
-conflicts that may require an absence (including any required additional
-preparation/travel time). The student is also expected to remind the
-faculty member in advance of the missed class, and to make arrangements
-in advance (with the faculty member) to make up any missed work or
-in-class material within a reasonable amount of time.
-
-### Student Athletes
-
-If you are a student-athlete, you should inform me of any class days to
-be missed due to DU sponsored varsity athletic events in which you are
-participating. Please provide me with an absence policy form by the end
-of the first week of class. You will need to make up any missed
-lectures, assignments, and/or exams.
-
-### Mental Health & Wellness
-
-As part of the University’s Culture of Care & Support we provide campus
-resources to create access for you to maintain your safety, health, and
-well-being. We understand that as a student you may experience a range
-of issues that can cause barriers to learning, such as strained
-relationships, increased anxiety, alcohol/drug concerns depression,
-difficulty concentrating and/or lack of motivation. These stressful
-moments can impact academic performance or reduce your ability to
-engage. The University offers services to assist you with addressing
-these or ANY other concerns you may be experiencing. If you or someone
-you know are suffering from any challenges, you should reach out for
-support. You can seek confidential mental health services available on
-campus in the Health & Counseling Center (HCC). Another helpful resource
-is Student Outreach & Support (SOS), where staff work with you to
-connect to all the appropriate campus resources (there are many!),
-develop a plan of action, and guide you in navigating challenging
-situations. If you are concerned about one of your peers you can submit
-a report through our Pioneers Care System. More information about HCC,
-SOS, and Pioneers CARE can be found at:
-
-Health & Counseling Services
-(<http://www.du.edu/health-and-counseling-center/>)
-
-Student Outreach & Support and Pioneers Care
-reporting <http://www.du.edu/studentlife/studentsupport/>
-
-
-## Mapping Course-Learning Outcomes to Program Learning Outcomes and ALA Core Competencies
-
-### Program Student Learning Outcomes (P-SLOs)
-
-In University of Denver MLIS program, these are the learning outcomes that are expected by graduation:
-
-1. Develop an understanding of historical, present, and emergent aspects of LIS and their effect on current practices.
-2. Use  LIS professional values and ethics for the development of inclusive, accessible, and equitable services, programs, and resources in libraries, archives, and other information organizations.
-3. Safeguard intellectual freedom and resist censorship irrespective of personal views and political agendas.
-4. Advocate for and facilitate equitable and open access to information.
-5. Engage communities within and outside of LIS organizations based on the principles of professional empathy, equity, inclusion, and accessibility.
-6. Develop the skills to communicate effectively and with cultural humility in diverse professional and community settings.
-7. Communicate the value of foundational, digital, and information literacy for informed citizenry and inclusive societal participation.
-8. Demonstrate a commitment to lifelong learning and service to communities and the LIS profession.
-9. Acquire foundational knowledge of administration and management of diverse information organizations.
-10. Apply the fundamental principles of information organization and access in various formats and environments, emphasizing digital information and resources.
-11. Become proficient and ethical educators, managers, and creators of technology and data.
-12. Engage in the critical evaluation and production of basic and applied research, supporting the values of research-to-practice and knowledge advancement.
-
-Here is how they align to this course:
-
-| **C-SLOs** | **P-SLOs** | **Assignments** | **ALA Core Competencies** |
-| --- | --- | --- | --- |
-| Demonstrate knowledge of relational database fundamentals | 10, 11 | Lab 1 (Relational Databases), Lab 2 (Joins and Methods) | 2. Information Resources, 5. Organization of Recorded Knowledge and Information, 9. Technological Knowledge and Skills |
-| Use SQL and Pandas for structured data querying and analysis | 10, 11, 12 | Lab 2 (Joins and Methods), Lab 3 (Pandas), Analysis Project | 5. Organization of Recorded Knowledge and Information, 7. Research and Evidence-Based Practice, 9. Technological Knowledge and Skills |
-| Understand the contexts of use for NoSQL, and apply them with MongoDB | 1, 10, 11 | (Week 9-10 labs/activities), Analysis Project | 1. Gateway Knowledge, 5. Organization of Recorded Knowledge and Information, 9. Technological Knowledge and Skills |
-| Apply fundamental data mining concepts in information science contexts | 10, 11, 12 | Lab 4 (Split-Apply-Combine), Analysis Project | 7. Research and Evidence-Based Practice, 9. Technological Knowledge and Skills |
-| Collect and organize data from the web | 4, 10, 11 | Lab 5 (Regular Expressions), Analysis Project | 2. Information Resources, 9. Technological Knowledge and Skills |
-| Understand aggregations and transformations for structured and semi-structured data | 10, 11, 12 | Lab 4 (Split-Apply-Combine), Mini-labs (Visualization, Advanced Skills), Analysis Project | 5. Organization of Recorded Knowledge and Information, 7. Research and Evidence-Based Practice, 9. Technological Knowledge and Skills |
-| Understand and apply large data patterns, such as Map-Reduce and Split-Apply-Combine | 10, 11, 12 | Lab 4 (Split-Apply-Combine), Analysis Project | 7. Research and Evidence-Based Practice, 9. Technological Knowledge and Skills |
