@@ -38,3 +38,15 @@ No prior programming experience required, though curiosity and willingness to le
 Weekly sessions combine lecture with hands-on lab time. Students work through practical exercises with peer support and instructor guidance. Assignments focus on applying concepts to real data analysis challenges.
 
 The course emphasizes practical skills over theory, preparing students to work effectively with large-scale structured data in information science contexts.
+
+## Local install
+
+The labs use Colab, so that you don't have to install anything. If you prefer running on your own system, you need to have [uv](https://docs.astral.sh/uv/getting-started/installation/) installed, as well as Git, and then run the following commands.
+
+```
+git clone https://github.com/organisciak/Scripting-Course && cd Scripting-Course
+uv sync
+uv run --with jupyter jupyter lab
+```
+
+If you want to you a different notebook setup - my go-to is typically the embedded Jupyter support in VS Code or Cursor - you just need the first two commands.
