@@ -10,6 +10,7 @@ dependencies = [
     "jupyter>=1.1.1",
     "jupyterlab-rise>=0.43.1",
     "lxml>=5.4.0",
+    "openai>=1.76.2",
     "pandas>=2.2.3",
     "prettytable<3.12",
     "seaborn>=0.13.2",
